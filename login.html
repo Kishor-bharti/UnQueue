@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        width: 100vw;
+        height: 90px;
+        background-color: rgb(7, 218, 179);
+        border-bottom: solid rgb(1, 1, 11);
+    }
+    body{
+        background: #0ac6c3;
+    }
+    h1 {
+        text-align: center;
+        padding-top: 15px;
+
+    }
+
+    .head {
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+    .container{
+        text-align: center;
+        margin-top: 15vh;
+    }
+
+    .box {
+        background-color: aquamarine;
+        display: inline-block;
+        align-items: center;
+        border: solid 2px rgb(0, 0, 0);
+        border-radius: 4px;
+        height: 245px;
+        width: 434px;
+    }
+
+    h2 {
+        text-align: center;
+        margin-top: 13px;
+        margin-bottom: 10px;
+    }
+
+    input {
+        height: 40px;
+        width: 403px;
+        margin-bottom: 6px;
+        padding-left: 3px;
+        border-radius: 4px;
+    }
+
+    button {
+        height: 30px;
+        width: 78px;
+        background-color: rgb(30, 207, 251);
+        border-style:none;
+        border-radius: 22px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    button:hover{
+        background-color: #2980b9;
+    }
+    .new{
+        margin-top: 14px;
+    }
+</style>
+
+<body>
+    <header>
+        <h1>
+            UnQueue
+        </h1>
+        <p class="head">Queue Management System</p>
+    </header>
+    <div class="container">
+        <div class="box">
+            <h2>LOGIN</h2>
+            <input type="text" placeholder="Email" required>
+            <input type="password" placeholder="Password" required><br>
+            <button>Login</button><br>
+            <p class="new">New to Unqueue?</p><a href="signup.html">Create new account</a>
+        </div>
+    </div>
+</body>
+
+</html>
+<!-- <form action="#">
+    <label for="email">Email</label>
+    <input type="text" id="name" name="email" required >
+
+    <label for="password">Password</label>
+    <input type="password" id="code" name="password" required ><br />
+    <input type="submit" value="login" />
+    <input type="button" value="signup" style="padding-left: 7px;" />
+  </form> -->
