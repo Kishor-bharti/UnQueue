@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if (!isset($_SESSION['email'])) {
+    // Redirect to login page
+    header("Location: login.php");
+    exit;
+}
 // Unset all session variables
 session_unset();
 
