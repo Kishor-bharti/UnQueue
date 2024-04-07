@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Database connection details
 $host = "localhost";
 $username = "root";
@@ -17,38 +18,40 @@ if ($conn->connect_error) {
 @$email = $_POST['email'];
 @$password = $_POST['password'];
 
-//SQL statement to check if the user exists
-$sql = "SELECT * FROM users WHERE email = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $email);
-$stmt->execute();
-$result = $stmt->get_result();
+if ($email && $password) {
+    //SQL statement to check if the user exists
+    $sql = "SELECT * FROM users WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    $hashedPassword = $row['password'];
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $hashedPassword = $row['password'];
 
-    // Verify the password
-    if (password_verify($password, $hashedPassword)) {
-        // Password is correct, handle user login
-        $userID = $row['id'];
-        $tableName = "user_" . $userID;
-        session_start();
+        // Verify the password
+        if (password_verify($password, $hashedPassword)) {
+            // Password is correct, handle user login
+            $userID = $row['id'];
+            $tableName = "user_" . $userID;
+            // session_start();
 
-        echo "Login successful! User ID: " . $userID . ", Table Name: " . $tableName;
-        header("Location: unqueue.php");
-        exit();
+            // echo "Login successful! User ID: ";
+            echo '<script>alert("Login successful! Redirecting to the home page.");</script>';
+            header("Location: unqueue.php");
+            // exit();
+        } else {
+            // echo "Invalid password.";
+            echo '<script>alert("Invalid password! Please try again!");</script>'; // just to keep things clean!
+        }
     } else {
-        // echo "Invalid password.";
-        echo ""; // just to keep things clean!
+        // echo "User not found.";
+        echo '<script>alert("User not found! Please Register First!");</script>'; // just to keep things clean!
     }
-} else {
-    // echo "User not found.";
-    echo ""; // just to keep things clean!
 }
-
 // Close the statement and connection
-$stmt->close();
+// @$stmt->close();
 $conn->close();
 ?>
 <!DOCTYPE html>
@@ -237,9 +240,10 @@ $conn->close();
                 <button type="button" id="viewPasswordBtn">View</button>
             </div>
 
+            <!-- <button type="submit" id="loginBtn">Login</button> -->
             <button type="submit" id="loginBtn">Login</button>
         </form>
-        <p>New user? <a href="signup.html">Sign Up</a></p>
+        <p>New user? <a href="signup.php">Sign Up</a></p>
     </div>
 
     <script>
