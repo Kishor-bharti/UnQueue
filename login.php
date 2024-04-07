@@ -1,59 +1,3 @@
-<?php
-session_start();
-// Database connection details
-$host = "localhost";
-$username = "root";
-$password = "";
-$database = "UnQueue";
-
-// Create a connection
-$conn = new mysqli($host, $username, $password, $database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Get form data
-@$email = $_POST['email'];
-@$password = $_POST['password'];
-
-if ($email && $password) {
-    //SQL statement to check if the user exists
-    $sql = "SELECT * FROM users WHERE email = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $hashedPassword = $row['password'];
-
-        // Verify the password
-        if (password_verify($password, $hashedPassword)) {
-            // Password is correct, handle user login
-            $userID = $row['id'];
-            $tableName = "user_" . $userID;
-            // session_start();
-
-            // echo "Login successful! User ID: ";
-            echo '<script>alert("Login successful! Redirecting to the home page.");</script>';
-            header("Location: unqueue.php");
-            // exit();
-        } else {
-            // echo "Invalid password.";
-            echo '<script>alert("Invalid password! Please try again!");</script>'; // just to keep things clean!
-        }
-    } else {
-        // echo "User not found.";
-        echo '<script>alert("User not found! Please Register First!");</script>'; // just to keep things clean!
-    }
-}
-// Close the statement and connection
-// @$stmt->close();
-$conn->close();
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -230,7 +174,13 @@ $conn->close();
     </header>
     <div class="container">
         <h1>Login</h1>
-        <form id="loginForm" action="login.php" method="POST">
+        <?php
+        // Display error message if provided in query string
+        if (isset($_GET['error'])) {
+            echo '<script>alert("' . $_GET['error'] . '");</script>';
+        }
+        ?>
+        <form id="loginForm" action="authenticate.php" method="POST">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required>
 

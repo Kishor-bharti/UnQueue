@@ -156,6 +156,7 @@ try {
 
         label {
             margin-bottom: 5px;
+            margin-right: 10px;
             font-weight: bold;
         }
 
@@ -252,8 +253,8 @@ try {
                 <label for="male">Male</label>
                 <input type="radio" id="female" name="gender" value="Female" required>
                 <label for="female">Female</label>
-                <input type="radio" id="other" name="gender" value="Other" required>
-                <label for="other">Other</label>
+                <!-- <input type="radio" id="other" name="gender" value="Other" required>
+                <label for="other">Other</label> -->
             </div>
 
             <label for="city">City</label>
