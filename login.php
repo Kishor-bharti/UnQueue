@@ -1,3 +1,15 @@
+<?php
+session_start();
+// Display error message if provided in query string
+if (isset($_GET['error'])) {
+    echo '<script>alert("' . $_GET['error'] . '");</script>';
+}
+if (isset($_SESSION['email'])) {
+    // Redirect to login page
+    header("Location: unqueue.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -174,12 +186,7 @@
     </header>
     <div class="container">
         <h1>Login</h1>
-        <?php
-        // Display error message if provided in query string
-        if (isset($_GET['error'])) {
-            echo '<script>alert("' . $_GET['error'] . '");</script>';
-        }
-        ?>
+
         <form id="loginForm" action="authenticate.php" method="POST">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required>
