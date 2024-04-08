@@ -40,11 +40,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `fullname`, `email`, `age`, `gender`, `password`) VALUES
-(1, 'Kishor', 'kishor@gmail.com', 23, 'Male', '123'),
-(7, 'kishor bharti', 'kishorbharti010@gmail.com', 23, 'Male', '$2y$10$z3YIqc41yewAg.5c5DwY5.iR7NlVAy8NOmVnWUBuEfZNpHZ8i.zv.'),
-(8, 'kid', 'kid@kid.com', 23, 'Male', '$2y$10$NZMBe77DLGDIVH6y1HyGrOiucSZzWD1fjR5baLEFgldqw6MeCEu0e'),
-(9, 'kishor bharti', 'jail@mail.com', 25, 'Male', '$2y$10$AfpVungbDDa0.oCQ4ASDluaPDtAsCtO5jMurPq2/kUf29hl/S0.RW');
+-- INSERT INTO `users` (`id`, `fullname`, `email`, `age`, `gender`, `password`) VALUES
+-- (1, 'Kishor', 'kishor@gmail.com', 23, 'Male', '123'),
+-- (7, 'kishor bharti', 'kishorbharti010@gmail.com', 23, 'Male', '$2y$10$z3YIqc41yewAg.5c5DwY5.iR7NlVAy8NOmVnWUBuEfZNpHZ8i.zv.'),
+-- (8, 'kid', 'kid@kid.com', 23, 'Male', '$2y$10$NZMBe77DLGDIVH6y1HyGrOiucSZzWD1fjR5baLEFgldqw6MeCEu0e'),
+-- (9, 'kishor bharti', 'jail@mail.com', 25, 'Male', '$2y$10$AfpVungbDDa0.oCQ4ASDluaPDtAsCtO5jMurPq2/kUf29hl/S0.RW');
 
 --
 -- Indexes for dumped tables
