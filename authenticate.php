@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } else {
             // User does not exist, redirect back to login page with error message
-        header("Location: login.php?error=User not found! Please try again!");
+        header("Location: login.php?error=User not found! Please Signup First!");
         exit;
     }
     }

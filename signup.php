@@ -98,53 +98,73 @@ try {
         body {
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
+            line-height: 1.6;
+        }
+
+
+        header {
+            background-color: #201919;
+            border-bottom: solid 2px black;
         }
 
         nav {
-            border-bottom: solid 4px black;
-            margin-bottom: 58px;
+            /* display: flex; */
+            justify-content: space-between;
+            align-items: center;
         }
+
+        nav ul {
+            /* display: flex; */
+            display: inline-block;
+            position: absolute;
+            /* top: 0; */
+            right: 0;
+            margin-right: 14px;
+            margin-top: 18px;
+            font-size: 20px;
+            /* list-style: none; */
+        }
+
+        nav div {
+            display: inline-block;
+            padding-left: 10px;
+        }
+
+        nav ul li {
+            margin-left: 5px;
+            display: inline-block;
+        }
+
+        nav a {
+            color: #4CAF50;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .socials {
+            display: block;
+            text-align: right;
+            /* background: #6bb6b9; */
+            background-image: linear-gradient(to right, #7cc18b, #6bb6b9);
+        }
+
+        .socials-icon {
+            /* display: inline-block; */
+            padding-top: 10px;
+            padding-right: 10px;
+        }
+
 
         .logo {
-            display: inline-block;
-            margin: 10px;
-            size: 10px;
-        }
-
-        .links ul li a {
-            text-decoration: none;
-            font-family: system-ui;
-        }
-
-        li {
-            display: inline-block;
-            font-size: 22px;
-            margin: 8px;
-        }
-
-        .logo p {
+            font-size: 38px;
             font-family: serif;
-            padding: 10px;
-        }
-
-        .logo p a {
-            font-size: 44px;
-            text-decoration: none;
-        }
-
-        .links {
-            display: inline-block;
-            margin-top: 28px;
-            margin-right: 10px;
-            position: absolute;
-            top: 0;
-            right: 0;
         }
 
         .container {
             /* max-width: 400px; */
             max-width: 370px;
             margin: 0 auto;
+            margin-top: 30px;
             padding: 20px;
             background-color: #fff;
             border-radius: 5px;
@@ -208,14 +228,31 @@ try {
             text-decoration: none;
         }
 
-        a:hover {
+        /* a:hover {
             text-decoration: underline;
-        }
+        } */
 
         /* Responsive styles */
         @media (max-width: 480px) {
             .container {
                 padding: 10px;
+            }
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            nav {
+
+                /* flex-direction: column; */
+                align-items: flex-start;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+            }
+
+            .popup-content {
+                width: 80%;
             }
         }
     </style>
@@ -224,22 +261,24 @@ try {
 <body>
     <header>
         <nav>
-            <div class="logo">
-                <p><a href="#">UnQueue</a></p>
+            <div class="socials">
+                <!-- socials here... -->
+                <div class="socials-icon">
+                    <a href="#"><img style="width: 25px; margin-right: 10px;" src="Media/facebook.png" alt="fb"></a>
+                    <a href="#"><img style="width: 25px; margin-right: 10px;" src="Media/github.png" alt="git"></a>
+                    <a href="#"><img style="width: 25px; margin-right: 10px;" src="Media/instagram.png" alt="ig"></a>
+                    <a href="#"><img style="width: 25px; margin-right: 10px;" src="Media/linkedin.png" alt="ln"></a>
+                    <a href="#"><img style="width: 25px; margin-right: 10px;" src="Media/twitter.png" alt="tw"></a>
+                </div>
             </div>
-            <div class="links">
-                <ul>
-                    <li>
-                        <a href="about.html">About</a>
-                    </li>
-                    <li>
-                        <a href="contact.html">Contact</a>
-                    </li>
-                    <li>
-                        <a href="login.php">Login</a>
-                    </li>
-                </ul>
+            <div>
+                <a href="#" class="logo">UnQueue</a>
             </div>
+            <ul>
+                <li><a href="notindex.php">Home</a></li>
+                <li><a href="about.php">About</a></li>
+                <li><a href="contact.php">Contact</a></li>
+            </ul>
         </nav>
     </header>
     <div class="container">

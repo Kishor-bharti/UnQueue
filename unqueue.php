@@ -68,6 +68,7 @@ if (!isset($_SESSION['email'])) {
 
         nav a {
             color: #4CAF50;
+            cursor: pointer;
             text-decoration: none;
         }
 
@@ -195,7 +196,7 @@ if (!isset($_SESSION['email'])) {
 
         .content div {
             display: inline-block;
-            height: 280px;
+            /* height: 280px; */
             width: 260px;
             margin-left: 50px;
             /* background: bisque; */
@@ -216,22 +217,28 @@ if (!isset($_SESSION['email'])) {
         }
 
         .copyright p {
+            /* display: inline; */
             text-align: center;
         }
 
         .pages div,
         .social-pages div {
             display: block;
-            margin-top: 24px;
+            margin-top: 14px;
+            margin-left: 20px;
             height: 20px;
             width: 20px;
             font-size: 20px;
+            /* font-family: Arial, sans-serif; */
             font-family: serif;
             /* background-color: black; */
         }
 
         .pages div a,
         .social-pages div a {
+            display: inline-block ;
+            /* display: flex;
+            flex-direction: column; */
             text-decoration: none;
             color: black;
         }
@@ -425,37 +432,44 @@ if (!isset($_SESSION['email'])) {
             font-family: serif; margin-left: 20px; margin-top: 28px;">UnQueue</p>
             </div>
             <div class="pages">
+                <p>Go to Pages</p>
                 <div>
-                    <a href="#">Booking</a>
+                    <a href="mybookings.php">Booking</a>
                 </div>
                 <div>
-                    <a href="#">History</a>
+                    <a href="myhistory.php">History</a>
                 </div>
                 <div>
-                    <a href="#">About</a>
+                    <a href="about2.php">About</a>
                 </div>
                 <div>
-                    <a href="#">Contact</a>
+                    <a href="contact2.php">Contact</a>
                 </div>
                 <div>
-                    <a href="#">logout</a>
+                    <a href="logout.php">logout</a>
                 </div>
             </div>
             <div class="social-pages">
+                <p>Find me on Socials</p>
                 <div>
-                    <a href="#">Booking</a>
+                    <a href="#"><img style="width: 25px; margin-right: 0px;" src="Media/facebook.png" alt="fb"></a>
+                    <!-- <a href="#">Facebook</a> -->
                 </div>
                 <div>
-                    <a href="#">History</a>
+                    <a href="#"><img style="width: 25px; margin-right: 0px;" src="Media/github.png" alt="git"></a>
+                    <!-- <a href="#">Github</a> -->
                 </div>
                 <div>
-                    <a href="#">About</a>
+                    <a href="#"><img style="width: 25px; margin-right: 0px;" src="Media/instagram.png" alt="ig"></a>
+                    <!-- <a href="#">Instagram</a> -->
                 </div>
                 <div>
-                    <a href="#">Contact</a>
+                    <a href="#"><img style="width: 25px; margin-right: 0px;" src="Media/linkedin.png" alt="ln"></a>
+                    <!-- <a href="#">LinkedIn</a> -->
                 </div>
                 <div>
-                    <a href="#">logout</a>
+                    <a href="#"><img style="width: 25px; margin-right: 0px;" src="Media/twitter.png" alt="tw"></a>
+                    <!-- <a href="#">Twitter</a> -->
                 </div>
             </div>
         </div>
