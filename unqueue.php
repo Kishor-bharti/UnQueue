@@ -84,9 +84,16 @@ if (!isset($_SESSION['email'])) {
         .socials {
             display: block;
             text-align: right;
-            background: #6bb6b9;
+            /* background: #6bb6b9; */
             background-image: linear-gradient(to right, #7cc18b, #6bb6b9);
         }
+
+        .socials-icon {
+            /* display: inline-block; */
+            padding-top: 10px;
+            padding-right: 10px;
+        }
+
 
         .logo {
             font-size: 38px;
@@ -173,6 +180,63 @@ if (!isset($_SESSION['email'])) {
             cursor: pointer;
         }
 
+        footer p {
+            color: #4CAF50;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: row;
+            height: 280px;
+            /* background-color: #201919; */
+            background-image: linear-gradient(to right, #7cc18b, #6bb6b9);
+        }
+
+
+        .content div {
+            display: inline-block;
+            height: 280px;
+            width: 260px;
+            margin-left: 50px;
+            /* background: bisque; */
+            /* border-right: solid 6px black; */
+            /* border-radius: 6px; */
+            /* border-image: linear-gradient(to bottom, #7cc18b, #6bb6b9); */
+        }
+
+        .content p {
+            color: #201919;
+            font-size: 18px;
+            margin-top: 50px;
+            margin-left: 20px;
+        }
+
+        .copyright {
+            background-color: black;
+        }
+
+        .copyright p {
+            text-align: center;
+        }
+
+        .pages div,
+        .social-pages div {
+            display: block;
+            margin-top: 24px;
+            height: 20px;
+            width: 20px;
+            font-size: 20px;
+            font-family: serif;
+            /* background-color: black; */
+        }
+
+        .pages div a,
+        .social-pages div a {
+            text-decoration: none;
+            color: black;
+        }
+
+
         /* Responsive styles */
         @media (max-width: 768px) {
             nav {
@@ -196,13 +260,20 @@ if (!isset($_SESSION['email'])) {
     <header>
         <nav>
             <div class="socials">
-                socials here...
+                <!-- socials here... -->
+                <div class="socials-icon">
+                    <a href="#"><img style="width: 25px; margin-right: 10px;" src="Media/facebook.png" alt="fb"></a>
+                    <a href="#"><img style="width: 25px; margin-right: 10px;" src="Media/github.png" alt="git"></a>
+                    <a href="#"><img style="width: 25px; margin-right: 10px;" src="Media/instagram.png" alt="ig"></a>
+                    <a href="#"><img style="width: 25px; margin-right: 10px;" src="Media/linkedin.png" alt="ln"></a>
+                    <a href="#"><img style="width: 25px; margin-right: 10px;" src="Media/twitter.png" alt="tw"></a>
+                </div>
             </div>
             <div>
                 <a href="#" class="logo">UnQueue</a>
             </div>
             <ul>
-                <li><a href="#home">Home</a></li>
+                <li><a href="logout.php">Logout</a></li>
                 <li><a href="#booking">Booking</a></li>
                 <li><a href="#history">History</a></li>
             </ul>
@@ -347,6 +418,51 @@ if (!isset($_SESSION['email'])) {
             }
         });
     </script>
+    <footer>
+        <div class="content">
+            <div> <!--style="border-right: solid 10px bisque;" -->
+                <p style="font-size: 38px;
+            font-family: serif; margin-left: 20px; margin-top: 28px;">UnQueue</p>
+            </div>
+            <div class="pages">
+                <div>
+                    <a href="#">Booking</a>
+                </div>
+                <div>
+                    <a href="#">History</a>
+                </div>
+                <div>
+                    <a href="#">About</a>
+                </div>
+                <div>
+                    <a href="#">Contact</a>
+                </div>
+                <div>
+                    <a href="#">logout</a>
+                </div>
+            </div>
+            <div class="social-pages">
+                <div>
+                    <a href="#">Booking</a>
+                </div>
+                <div>
+                    <a href="#">History</a>
+                </div>
+                <div>
+                    <a href="#">About</a>
+                </div>
+                <div>
+                    <a href="#">Contact</a>
+                </div>
+                <div>
+                    <a href="#">logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy;UnQueue: Rights Reserved</p>
+        </div>
+    </footer>
 </body>
 
 </html>
