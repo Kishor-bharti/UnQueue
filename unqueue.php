@@ -440,10 +440,10 @@ if (!isset($_SESSION['email'])) {
                     <a href="myhistory.php">History</a>
                 </div>
                 <div>
-                    <a href="about2.php">About</a>
+                    <a href="aboutMe.php">About</a>
                 </div>
                 <div>
-                    <a href="contact2.php">Contact</a>
+                    <a href="contactMe.php">Contact</a>
                 </div>
                 <div>
                     <a href="logout.php">logout</a>
