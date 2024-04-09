@@ -14,7 +14,7 @@ if (isset($_SESSION['email'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My template</title>
+    <title>Contact UnQueue</title>
     <style>
         * {
             box-sizing: border-box;
@@ -89,6 +89,100 @@ if (isset($_SESSION['email'])) {
             font-size: 38px;
             font-family: serif;
         }
+
+        /* ..................Main Body Styles........................ */
+
+        /* Banner Section */
+        .banner {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            width: 300%;
+            animation: slide 10s infinite;
+        }
+
+        .slide {
+            flex: 1;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .text-animation {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: rgb(24, 19, 19);
+            /* font-family: 'Times New Roman', Times, serif; */
+            animation: textAnimation 9s infinite;
+        }
+
+        .text-animation h2 {
+            font-size: 2rem;
+            opacity: 0;
+            animation: fadeInOut 3s infinite;
+        }
+
+        .text-animation h1 {
+            font-size: 3rem;
+            opacity: 0;
+            animation: fadeInOut 3s infinite;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+
+            33.33% {
+                transform: translateX(-33.33%);
+            }
+
+            66.66% {
+                transform: translateX(-66.66%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInOut {
+
+            0%,
+            100% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        main {
+            background-image: url("Media/new-bg-2.jpg");
+            background-size: cover;
+            /* This will make sure the image covers the entire background without distortion */
+            background-repeat: no-repeat;
+            /* Prevent the background image from repeating */
+            background-position: center;
+            background-attachment: fixed;
+            /* background-position: fixed; */
+        }
+
+
+        /* .......................Footer Part styles........................ */
+
 
         footer p {
             color: #4CAF50;
@@ -189,17 +283,53 @@ if (isset($_SESSION['email'])) {
                 <a href="#" class="logo">UnQueue</a>
             </div>
             <ul>
-                <li><a href="logout.php">Logout</a></li>
-                <li><a href="#booking">Booking</a></li>
-                <li><a href="#history">History</a></li>
+                <li><a href="login.php">Login</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="about.php">About</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section id="home">
-            <h1>Welcome to UnQueue</h1>
-            <p>This is just a template</p>
+        <!-- Banner Section -->
+        <section class="banner">
+            <div class="slider">
+                <div class="slide">
+                    <img src="Media/banner1.jpg" alt="Banner 1">
+                    <div class="text-animation">
+                        <h2>Welcome to</h2>
+                        <h1>Our Website</h1>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="Media/banner2.jpg" alt="Banner 2">
+                    <div class="text-animation">
+                        <h2>Explore</h2>
+                        <h1>Our Services</h1>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="Media/banner3.jpg" alt="Banner 3">
+                    <div class="text-animation">
+                        <h2>Join</h2>
+                        <h1>Our Community</h1>
+                    </div>
+                </div>
+            </div>
         </section>
+        <section id="home">
+            <div><h1>Contact UnQueue</h1>
+            <p>Thank you for your interest in UnQueue! We're here to assist you with any inquiries, questions, or feedback you may have. Please feel free to reach out to us using the contact information provided below.</p></div>
+        </section>
+        <section><div>
+        Contact Information
+        Address: [Your Company Address]
+
+Phone: [Your Phone Number]
+
+Email: [Your Email Address]
+
+Business Hours: [Your Business Hours]
+        </div></section>
     </main>
     <footer>
         <div class="content">
@@ -210,20 +340,18 @@ if (isset($_SESSION['email'])) {
             <div class="pages">
                 <p>Go to Pages</p>
                 <div>
-                    <a href="mybookings.php">Booking</a>
+                    <a href="login.php">Login</a>
                 </div>
                 <div>
-                    <a href="myhistory.php">History</a>
+                    <a href="signup.php">Signup</a>
                 </div>
                 <div>
-                    <a href="about2.php">About</a>
+                    <a href="about.php">About</a>
                 </div>
                 <div>
-                    <a href="contact2.php">Contact</a>
+                    <a href="index.php">Home</a>
                 </div>
-                <div>
-                    <a href="logout.php">logout</a>
-                </div>
+
             </div>
             <div class="social-pages">
                 <p>Find me on Socials</p>

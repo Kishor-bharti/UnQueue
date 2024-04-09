@@ -14,9 +14,8 @@ if (!isset($_SESSION['email'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UnQueue</title>
+    <title>Unqueue</title>
     <style>
-        /* Reset styles and basic styling */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -66,20 +65,11 @@ if (!isset($_SESSION['email'])) {
             display: inline-block;
         }
 
-        nav a {
+        nav a,
+        a {
             color: #4CAF50;
             cursor: pointer;
             text-decoration: none;
-        }
-
-        main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        section {
-            margin-bottom: 2rem;
         }
 
         .socials {
@@ -101,85 +91,244 @@ if (!isset($_SESSION['email'])) {
             font-family: serif;
         }
 
-        .booking-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
+
+        /* .................Main Body style starts here.................... */
+
+
+
+        /* Banner Section */
+        .banner {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
         }
 
-        .booking-item {
-            background-color: #f4f4f4;
-            padding: 1rem;
+        .slider {
+            display: flex;
+            width: 300%;
+            animation: slide 10s infinite;
+        }
+
+        .slide {
+            flex: 1;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .text-animation {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             text-align: center;
+            color: rgb(24, 19, 19);
+            /* font-family: 'Times New Roman', Times, serif; */
+            animation: textAnimation 9s infinite;
         }
 
-        .booking-item img {
-            max-width: 30%;
-            height: auto;
+        .text-animation h2 {
+            font-size: 2rem;
+            opacity: 0;
+            animation: fadeInOut 3s infinite;
         }
 
-        .book-btn {
-            background-color: #333;
-            color: #fff;
-            border: none;
-            padding: 0.5rem 1rem;
+        .text-animation h1 {
+            font-size: 3rem;
+            opacity: 0;
+            animation: fadeInOut 3s infinite;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+
+            33.33% {
+                transform: translateX(-33.33%);
+            }
+
+            66.66% {
+                transform: translateX(-66.66%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInOut {
+
+            0%,
+            100% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* Other Sections */
+        /* section {
+            padding: 50px;
+        } */
+
+        .additional-content {
+            display: none;
+        /* Initially hide the additional content */
+        }
+
+        /* #read-more { */
+        /* color: blue;  */
+        /* color: #4CAF50;
             cursor: pointer;
+        } */
+
+        /* .read-more:hover {
+            text-decoration: underline;
+        } */
+
+        /* #read-more:focus {
+            outline: none; */
+        /* Remove the default focus outline */
+        /* } */
+
+        /* Show additional content when "Read more" is clicked */
+        /* .read-more {
+            display: block;
+        } */
+
+
+        .heading {
+            text-align: center;
+            margin-bottom: 20px;
+            height: 110px;
+            font-size: 20px;
+            font-family: serif;
+            color: #127777de;
+            background-image: url(Media/heading.jpg);
         }
 
-        .history-list {
-            list-style: none;
+        .heading h1 {
+            margin: 0%;
+            padding-top: 10px;
         }
 
-        .booking-entry {
-            background-color: #f4f4f4;
-            padding: 1rem;
+        main {
+            background-image: url("Media/new-bg-2.jpg");
+            background-size: cover;
+            /* This will make sure the image covers the entire background without distortion */
+            background-repeat: no-repeat;
+            /* Prevent the background image from repeating */
+            background-position: center;
+            background-attachment: fixed;
+            /* background-position: fixed; */
+        }
+
+        .about,
+        .services,
+        .contact {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .booking-entry button {
+        .about .container,
+        .services .container,
+        .services h2,
+        .contact h2 {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .container h2,
+        .services h2,
+        .contact h2 {
+            font-size: 35px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        ol li {
+            /* line-height: 5px; */
+            margin-bottom: 8px;
+        }
+
+        .image img {
+
+            /* margin: 20px; */
+            margin-left: 78px;
+            margin-top: 20px;
+            width: 400px;
+        }
+
+        .about .image,
+        .service-cards {
+            flex: 1;
+        }
+
+        .service-cards {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card {
+            text-align: center;
+            padding: 20px;
+            /* border: solid 4px white; */
+            background-color: rgba(255, 255, 255, 0.5);
+            size: 20px;
+            backdrop-filter: blur(1px);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .card p {
+            width: 160px;
+        }
+
+        .card img {
+            width: 100%;
+            max-width: 200px;
+            height: 120px;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover,
+        .card img {
+            transform: scale(1.1);
+            /* Enlarge the card on hover */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: 20px;
+        }
+
+        input,
+        textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
             background-color: #333;
             color: #fff;
             border: none;
-            padding: 0.5rem 1rem;
             cursor: pointer;
         }
 
-        .popup {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.4);
-        }
+        /*..................Footer Style Starts here.................... */
 
-        .popup-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 30%;
-            position: relative;
-        }
 
-        .close-button {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close-button:hover,
-        .close-button:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
 
         footer p {
             color: #4CAF50;
@@ -236,7 +385,7 @@ if (!isset($_SESSION['email'])) {
 
         .pages div a,
         .social-pages div a {
-            display: inline-block ;
+            display: inline-block;
             /* display: flex;
             flex-direction: column; */
             text-decoration: none;
@@ -261,6 +410,79 @@ if (!isset($_SESSION['email'])) {
             }
         }
     </style>
+    <script>
+        const textAnimationElements = document.querySelectorAll('.text-animation');
+        const slides = document.querySelectorAll('.slide');
+
+        let currentSlide = 0;
+
+        textAnimationElements.forEach((element, index) => {
+            const h2 = element.querySelector('h2');
+            const h1 = element.querySelector('h1');
+
+            setTimeout(() => {
+                h2.style.animation = 'fadeInOut 3s infinite';
+            }, 1000 + (index * 3000));
+
+            setTimeout(() => {
+                h1.style.animation = 'fadeInOut 3s 3s infinite';
+            }, 2000 + (index * 3000));
+        });
+
+        function showSlide() {
+            slides.forEach((slide, index) => {
+                slide.style.transform = `translateX(-${(currentSlide * 100) / slides.length}%)`;
+            });
+        }
+
+        function nextSlide() {
+            currentSlide++;
+            if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            }
+            showSlide();
+        }
+
+        function prevSlide() {
+            currentSlide--;
+            if (currentSlide < 0) {
+                currentSlide = slides.length - 1;
+            }
+            showSlide();
+        }
+
+        setInterval(nextSlide, 3000);
+        showSlide();
+
+        // Arrow key controls
+        document.addEventListener('keydown', (event) => {
+            if (event.code === 'ArrowRight') {
+                nextSlide();
+            } else if (event.code === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const readMoreLinks = document.querySelectorAll('.read-more');
+
+            readMoreLinks.forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent the default link behavior
+
+                    const additionalContent = this.nextElementSibling;
+
+                    if (additionalContent.style.display === 'block') {
+                        additionalContent.style.display = 'none';
+                        this.innerText = 'Read more...';
+                    } else {
+                        additionalContent.style.display = 'block';
+                        this.innerText = 'Read less';
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -281,150 +503,146 @@ if (!isset($_SESSION['email'])) {
             </div>
             <ul>
                 <li><a href="logout.php">Logout</a></li>
-                <li><a href="#booking">Booking</a></li>
-                <li><a href="#history">History</a></li>
+                <li><a href="mybookings.php">Booking</a></li>
+                <li><a href="myhistory.php">History</a></li>
             </ul>
         </nav>
     </header>
-
     <main>
-        <section id="home">
+        <!-- Banner Section -->
+        <section class="banner">
+            <div class="slider">
+                <div class="slide">
+                    <img src="Media/banner1.jpg" alt="Banner 1">
+                    <div class="text-animation">
+                        <h2>Welcome to</h2>
+                        <h1>Our Website</h1>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="Media/banner2.jpg" alt="Banner 2">
+                    <div class="text-animation">
+                        <h2>Explore</h2>
+                        <h1>Our Services</h1>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="Media/banner3.jpg" alt="Banner 3">
+                    <div class="text-animation">
+                        <h2>Join</h2>
+                        <h1>Our Community</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="heading">
+            <h1>Welcome to UnQueue: <br> Revolutionizing Queue Management</h1>
+        </section>
+
+        <!-- About Section -->
+        <section class="about">
+            <div class="container">
+                <h2>About Us</h2>
+                <p>
+                <h4>What is a Queue Management System?</h4>
+                A queue management system is a sophisticated solution designed to streamline and optimize the process of managing queues or waiting lines in various settings such as retail stores, hospitals, banks, airports, and more. It utilizes a combination of technology, data analysis, and strategic planning to efficiently organize, monitor, and control queues, ultimately enhancing the overall customer experience.</p>
+                <div class="article">
+                    <p><br>
+                    <h4>The Importance of Queue Management Systems</h4>
+                    In today's fast-paced world, where time is of the essence, efficient queue management is crucial for businesses and organizations to remain competitive and meet the ever-growing demands of their customers.</p>
+                    <a href="#" class="read-more">Read More...</a>
+                    <div class="additional-content">
+                        <br><p><h4>Here's why queue management systems are essential:</h4><br>
+                    <div style="margin-left: 20px;">
+                    <ol>
+                        <li>
+                        <h5>Improved Customer Satisfaction:</h5> By reducing wait times, minimizing congestion, and providing a seamless queue experience, queue management systems enhance customer satisfaction and loyalty.
+                        </li>
+                        <li>
+                            <h5>Increased Operational Efficiency:</h5> By optimizing queue flow, resource allocation, and staffing levels, queue management systems improve operational efficiency and productivity, leading to cost savings and revenue growth.
+                        </li>
+                        <li>
+                            <h5>Enhanced Brand Image:</h5>
+                            Providing a hassle-free queue experience reflects positively on the brand image, fostering trust, loyalty, and positive word-of-mouth recommendations.
+                        </li>
+                    </ol></div></p>
+                        <!-- You can add more content here -->
+                    </div>
+                </div>
+            </div>
+            <div class="image">
+                <img src="cool.jpg" alt="About Image">
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services">
+            <div class="container">
+                <h2 style="margin: 0px;">Our Services</h2>
+                <p>
+                <h4>Where Queue Management Systems Work Best?</h4>Queue management systems can be implemented effectively in various environments, including but not limited to: <br> <br>
+                <div style="margin-left: 20px;">
+                    <ul>
+                        <li>
+                            Hospitals and Clinics
+                        </li>
+                        <li>
+                            Banks and financial institutions
+                        </li>
+                        <li>
+                            Airports and transportation hubs
+                        </li>
+                        <li>
+                            Food Courts and Restaurants
+                        </li>
+                        <li>
+                            Retail stores
+                        </li>
+                        <li>
+                            Theme parks and entertainment venues
+                        </li>
+                    </ul>
+                </div>
+                </p>
+            </div>
+            <div class="service-cards">
+                <div class="card">
+                    <img src="Media/ourservices1.png" alt="Express Way Access">
+                    <h3>Express Way Access</h3>
+                    <p>For clients with urgent needs or emergencies, we offer premium access options where they can bypass the queue by paying a premium price.</p>
+                </div>
+                <div class="card">
+                    <img src="Media/ourservices2.jpg" alt=" Virtual Queuing System">
+                    <h3>Virtual Queuing System</h3><p>Our virtual queuing system allows users to join queues remotely through our website, receive real-time updates on queue status, and get notified when it's their turn.</p>
+                </div>
+                <div class="card">
+                    <img src="Media/ourservices3.jpg" alt="Digital Check-In">
+                    <h3>Digital Check-In</h3>
+                    <p>With our digital check-in options, users can check in remotely before arriving on-site, securing their place in line and minimizing wait times upon arrival.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact">
+           <div><h2>Contact Us</h2>
+            <p style="margin-left: 20px;">For any Query or Partnership, contact us and our team will assist you in no time!</p></div>
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+
+
+        <!-- <section id="home">
             <h1>Welcome to UnQueue</h1>
-            <p>Effortlessly manage your queues with our innovative solution.</p>
-        </section>
-
-        <section id="booking">
-            <h2>Book Your Virtual Queue Token</h2>
-            <div class="booking-grid">
-                <div class="booking-item">
-                    <img src="cool.jpg" alt="CARE-WELL">
-                    <h3>CARE-WELL</h3>
-                    <p>Waiting List: 4</p>
-                    <p>Token Number: 55</p>
-                    <button class="book-btn">Book Virtual Queue Token</button>
-                </div>
-                <div class="booking-item">
-                    <img src="cool.jpg" alt="CARE-WELL">
-                    <h3>CARE-WELL</h3>
-                    <p>Waiting List: 4</p>
-                    <p>Token Number: 55</p>
-                    <button class="book-btn">Book Virtual Queue Token</button>
-                </div>
-                <div class="booking-item">
-                    <img src="cool.jpg" alt="CARE-WELL">
-                    <h3>CARE-WELL</h3>
-                    <p>Waiting List: 4</p>
-                    <p>Token Number: 55</p>
-                    <button class="book-btn">Book Virtual Queue Token</button>
-                </div>
-                <div class="booking-item">
-                    <img src="cool.jpg" alt="CARE-WELL">
-                    <h3>CARE-WELL</h3>
-                    <p>Waiting List: 5</p>
-                    <p>Token Number: 55</p>
-                    <button class="book-btn">Book Virtual Queue Token</button>
-                </div>
-                <div class="booking-item">
-                    <img src="cool.jpg" alt="CARE-WELL">
-                    <h3>CARE-WELL</h3>
-                    <p>Waiting List: 4</p>
-                    <p>Token Number: 55</p>
-                    <button class="book-btn">Book Virtual Queue Token</button>
-                </div>
-                <div class="booking-item">
-                    <img src="cool.jpg" alt="CARE-WELL">
-                    <h3>CARE-WELL</h3>
-                    <p>Waiting List: 4</p>
-                    <p>Token Number: 55</p>
-                    <button class="book-btn">Book Virtual Queue Token</button>
-                </div>
-                <!-- Add more booking items here -->
-            </div>
-        </section>
-
-        <section id="history">
-            <h2>Your Bookings</h2>
-            <div class="history-list">
-                <!-- Bookings will be added here dynamically -->
-            </div>
-        </section>
+            <p>This Home page is on public domain!</p>
+        </section> -->
     </main>
-
-    <div id="tokenPopup" class="popup">
-        <div class="popup-content">
-            <span class="close-button">&times;</span>
-            <p id="tokenMessage"></p>
-        </div>
-    </div>
-    <a href="logout.php">Logout</a>
-
-    <script>
-        // Get booking buttons and history list
-        const bookingButtons = document.querySelectorAll('.book-btn');
-        const historyList = document.querySelector('.history-list');
-
-        // Get token popup elements
-        const tokenPopup = document.getElementById('tokenPopup');
-        const closeButton = document.querySelector('.close-button');
-        const tokenMessage = document.getElementById('tokenMessage');
-
-        // Track the last token number
-        let lastTokenNumber = 55;
-
-        // Function to display the token popup
-        function showTokenPopup(tokenNumber) {
-            const waitingTime = 4 * 5; // Waiting list * 5 minutes
-            tokenMessage.textContent = `Your token number is ${tokenNumber}. Your turn in ${waitingTime} mins.`;
-            tokenPopup.style.display = 'block';
-        }
-
-        // Function to hide the token popup
-        function hideTokenPopup() {
-            tokenPopup.style.display = 'none';
-        }
-
-        // Event listener for booking buttons
-        bookingButtons.forEach((button) => {
-            button.addEventListener('click', () => {
-                lastTokenNumber++;
-                showTokenPopup(lastTokenNumber);
-
-                // Create a new booking entry
-                const bookingEntry = document.createElement('div');
-                bookingEntry.className = 'booking-entry';
-                bookingEntry.innerHTML = `
-            <span>Token Number: ${lastTokenNumber}</span>
-            <button class="cancel-btn">Cancel</button>
-        `;
-
-                // Append the booking entry to the history list
-                historyList.appendChild(bookingEntry);
-
-                // Add event listener for cancel button
-                const cancelButton = bookingEntry.querySelector('.cancel-btn');
-                cancelButton.addEventListener('click', () => {
-                    cancelButton.textContent = 'Processing';
-                    cancelButton.disabled = true;
-
-                    // After 1 minute, mark the booking as successful
-                    setTimeout(() => {
-                        cancelButton.textContent = 'Successful';
-                        cancelButton.style.backgroundColor = 'green';
-                    }, 60000); // 1 minute in milliseconds
-                });
-            });
-        });
-
-        // Event listener for close button
-        closeButton.addEventListener('click', hideTokenPopup);
-
-        // Event listener for clicking outside the popup
-        window.addEventListener('click', (event) => {
-            if (event.target === tokenPopup) {
-                hideTokenPopup();
-            }
-        });
-    </script>
     <footer>
         <div class="content">
             <div> <!--style="border-right: solid 10px bisque;" -->

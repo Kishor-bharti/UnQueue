@@ -14,7 +14,7 @@ if (isset($_SESSION['email'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Not Index page</title>
+    <title>Unqueue</title>
     <style>
         * {
             box-sizing: border-box;
@@ -65,7 +65,8 @@ if (isset($_SESSION['email'])) {
             display: inline-block;
         }
 
-        nav a {
+        nav a,
+        a {
             color: #4CAF50;
             cursor: pointer;
             text-decoration: none;
@@ -177,6 +178,32 @@ if (isset($_SESSION['email'])) {
             padding: 50px;
         } */
 
+        .additional-content {
+            display: none;
+        /* Initially hide the additional content */
+        }
+
+        /* #read-more { */
+        /* color: blue;  */
+        /* color: #4CAF50;
+            cursor: pointer;
+        } */
+
+        /* .read-more:hover {
+            text-decoration: underline;
+        } */
+
+        /* #read-more:focus {
+            outline: none; */
+        /* Remove the default focus outline */
+        /* } */
+
+        /* Show additional content when "Read more" is clicked */
+        /* .read-more {
+            display: block;
+        } */
+
+
         .heading {
             text-align: center;
             margin-bottom: 20px;
@@ -211,7 +238,8 @@ if (isset($_SESSION['email'])) {
             align-items: center;
         }
 
-        .about .container, .services .container,
+        .about .container,
+        .services .container,
         .services h2,
         .contact h2 {
             flex: 1;
@@ -223,6 +251,11 @@ if (isset($_SESSION['email'])) {
         .contact h2 {
             font-size: 35px;
             font-family: 'Courier New', Courier, monospace;
+        }
+
+        ol li {
+            /* line-height: 5px; */
+            margin-bottom: 8px;
         }
 
         .image img {
@@ -246,8 +279,16 @@ if (isset($_SESSION['email'])) {
         .card {
             text-align: center;
             padding: 20px;
-            border-radius: 5px;
+            /* border: solid 4px white; */
+            background-color: rgba(255, 255, 255, 0.5);
+            size: 20px;
+            backdrop-filter: blur(1px);
+            border-radius: 15px;
             transition: transform 0.3s ease;
+        }
+
+        .card p {
+            width: 160px;
         }
 
         .card img {
@@ -268,6 +309,7 @@ if (isset($_SESSION['email'])) {
             display: flex;
             flex-direction: column;
             max-width: 400px;
+            margin: 20px;
         }
 
         input,
@@ -420,6 +462,26 @@ if (isset($_SESSION['email'])) {
                 prevSlide();
             }
         });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const readMoreLinks = document.querySelectorAll('.read-more');
+
+            readMoreLinks.forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent the default link behavior
+
+                    const additionalContent = this.nextElementSibling;
+
+                    if (additionalContent.style.display === 'block') {
+                        additionalContent.style.display = 'none';
+                        this.innerText = 'Read more...';
+                    } else {
+                        additionalContent.style.display = 'block';
+                        this.innerText = 'Read less';
+                    }
+                });
+            });
+        });
     </script>
 </head>
 
@@ -482,9 +544,32 @@ if (isset($_SESSION['email'])) {
         <section class="about">
             <div class="container">
                 <h2>About Us</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, magna a eleifend sollicitudin,
-                    turpis massa bibendum augue, a commodo metus eros non augue. Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non ab error tempora ut consequatur rerum eius temporibus assumenda sapiente mollitia quae quaerat amet, ipsum ea laborum provident velit molestias. Dolor eaque quas, corporis inventore recusandae asperiores assumenda quis ea aperiam quasi perferendis, iste quidem! Suscipit, hic. Porro aut animi ut error, quam deleniti architecto! Velit cumque voluptas totam consectetur modi ducimus sapiente labore id! Ipsa alias rerum sint repellendus excepturi aperiam laborum labore adipisci, dolore animi necessitatibus accusamus illo ut possimus eligendi id autem natus cupiditate cum! Excepturi quaerat quis earum, eaque maiores omnis vero veritatis dolor enim temporibus eius neque distinctio voluptatem sapiente facilis fugiat fugit iste quos. Inventore ut unde animi magnam deserunt deleniti placeat fugit, quia explicabo sint, voluptatum laboriosam a consequuntur, earum eveniet pariatur similique mollitia aliquid praesentium esse reiciendis doloremque. Voluptatum esse a hic aliquam nihil praesentium nam animi maxime labore officia, tempora eos! At officia, nihil ab nobis ratione reprehenderit, minima esse culpa illo sapiente expedita. Adipisci esse temporibus illum saepe eum eaque provident corrupti quis! Voluptatem dolorum iusto sequi vel quas molestias. Atque consequatur iusto illo eaque nemo nulla repellat, magnam, ipsa veniam illum, quos rerum ipsum dolorem repudiandae consequuntur officia itaque.</p>
-                <a href="#" class="btn">Learn More</a>
+                <p>
+                <h4>What is a Queue Management System?</h4>
+                A queue management system is a sophisticated solution designed to streamline and optimize the process of managing queues or waiting lines in various settings such as retail stores, hospitals, banks, airports, and more. It utilizes a combination of technology, data analysis, and strategic planning to efficiently organize, monitor, and control queues, ultimately enhancing the overall customer experience.</p>
+                <div class="article">
+                    <p><br>
+                    <h4>The Importance of Queue Management Systems</h4>
+                    In today's fast-paced world, where time is of the essence, efficient queue management is crucial for businesses and organizations to remain competitive and meet the ever-growing demands of their customers.</p>
+                    <a href="#" class="read-more">Read More...</a>
+                    <div class="additional-content">
+                        <br><p><h4>Here's why queue management systems are essential:</h4><br>
+                    <div style="margin-left: 20px;">
+                    <ol>
+                        <li>
+                        <h5>Improved Customer Satisfaction:</h5> By reducing wait times, minimizing congestion, and providing a seamless queue experience, queue management systems enhance customer satisfaction and loyalty.
+                        </li>
+                        <li>
+                            <h5>Increased Operational Efficiency:</h5> By optimizing queue flow, resource allocation, and staffing levels, queue management systems improve operational efficiency and productivity, leading to cost savings and revenue growth.
+                        </li>
+                        <li>
+                            <h5>Enhanced Brand Image:</h5>
+                            Providing a hassle-free queue experience reflects positively on the brand image, fostering trust, loyalty, and positive word-of-mouth recommendations.
+                        </li>
+                    </ol></div></p>
+                        <!-- You can add more content here -->
+                    </div>
+                </div>
             </div>
             <div class="image">
                 <img src="cool.jpg" alt="About Image">
@@ -495,30 +580,54 @@ if (isset($_SESSION['email'])) {
         <section class="services">
             <div class="container">
                 <h2 style="margin: 0px;">Our Services</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eligendi at officiis accusamus similique tempore a, adipisci quas quam maiores fugiat ut illum libero earum eos tempora quibusdam est laboriosam dignissimos aliquid laborum obcaecati dolor, nihil quidem? Necessitatibus, rerum. Cumque et, iste, odio qui vitae laboriosam veritatis mollitia accusantium animi voluptates fuga non totam porro! Debitis soluta, voluptas deserunt rerum cumque, architecto voluptatibus unde, quia quos sed porro consequatur atque aperiam? Mollitia quidem asperiores soluta ad provident debitis illum quas officia cum est ex et, nisi possimus illo explicabo. Enim pariatur reiciendis perferendis aliquam nisi dolor voluptatum voluptas soluta cupiditate obcaecati numquam hic ex eum, illum neque minima excepturi, magnam corrupti, eaque ad illo! Voluptas praesentium reiciendis repellendus dicta quia aliquam nulla adipisci aliquid, quod dolorum itaque atque! Repellendus, corporis animi repudiandae consequuntur in, non laborum nemo quis eius culpa impedit atque voluptatibus deserunt obcaecati! Dolorum beatae natus necessitatibus quia qui? Sunt, quod dolorum quibusdam deleniti perferendis ullam autem consequuntur nulla qui minima sapiente quaerat dolorem omnis nemo pariatur minus illum. Tempore numquam similique asperiores voluptate quas ad aperiam repellendus, sunt voluptatem cumque ex minus nostrum at dolorem porro non voluptas illo perspiciatis incidunt, aliquam impedit vel optio voluptatum? Quibusdam ipsam ullam expedita, nulla pariatur sed eos magni eligendi voluptatum officiis doloribus iure molestiae mollitia omnis facere vero, quam nisi animi veritatis reiciendis impedit distinctio temporibus dolorum beatae. Deleniti provident consequatur molestias, ipsa cumque accusantium mollitia vero inventore nesciunt ad, aut omnis voluptatem suscipit impedit, voluptates dolore quisquam itaque. Libero at atque maiores. Velit aliquam numquam facere corporis quidem vero expedita, debitis recusandae pariatur atque, perspiciatis distinctio dolorem possimus excepturi? Consequatur amet hic mollitia itaque facilis sequi eum distinctio ipsa unde deserunt commodi quod vel, nobis dolores eaque vitae impedit suscipit praesentium saepe quidem incidunt dolore odit corporis. Aperiam, eaque.</p>
+                <p>
+                <h4>Where Queue Management Systems Work Best?</h4>Queue management systems can be implemented effectively in various environments, including but not limited to: <br> <br>
+                <div style="margin-left: 20px;">
+                    <ul>
+                        <li>
+                            Hospitals and Clinics
+                        </li>
+                        <li>
+                            Banks and financial institutions
+                        </li>
+                        <li>
+                            Airports and transportation hubs
+                        </li>
+                        <li>
+                            Food Courts and Restaurants
+                        </li>
+                        <li>
+                            Retail stores
+                        </li>
+                        <li>
+                            Theme parks and entertainment venues
+                        </li>
+                    </ul>
+                </div>
+                </p>
             </div>
             <div class="service-cards">
                 <div class="card">
-                    <img src="Media/ourservices1.png" alt="Service 1">
-                    <h3>Service 1</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <img src="Media/ourservices1.png" alt="Express Way Access">
+                    <h3>Express Way Access</h3>
+                    <p>For clients with urgent needs or emergencies, we offer premium access options where they can bypass the queue by paying a premium price.</p>
                 </div>
                 <div class="card">
-                    <img src="Media/ourservices2.jpg" alt="Service 2">
-                    <h3>Service 2</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <img src="Media/ourservices2.jpg" alt=" Virtual Queuing System">
+                    <h3>Virtual Queuing System</h3><p>Our virtual queuing system allows users to join queues remotely through our website, receive real-time updates on queue status, and get notified when it's their turn.</p>
                 </div>
                 <div class="card">
-                    <img src="Media/ourservices3.jpg" alt="Service 3">
-                    <h3>Service 3</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <img src="Media/ourservices3.jpg" alt="Digital Check-In">
+                    <h3>Digital Check-In</h3>
+                    <p>With our digital check-in options, users can check in remotely before arriving on-site, securing their place in line and minimizing wait times upon arrival.</p>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
         <section class="contact">
-            <h2>Contact Us</h2>
+           <div><h2>Contact Us</h2>
+            <p style="margin-left: 20px;">For any Query or Partnership, contact us and our team will assist you in no time!</p></div>
             <form>
                 <input type="text" placeholder="Name" required>
                 <input type="email" placeholder="Email" required>
@@ -543,19 +652,13 @@ if (isset($_SESSION['email'])) {
             <div class="pages">
                 <p>Go to Pages</p>
                 <div>
-                    <a href="mybookings.php">Booking</a>
+                    <a href="about.php">About</a>
                 </div>
                 <div>
-                    <a href="myhistory.php">History</a>
+                    <a href="contact.php">Contact</a>
                 </div>
                 <div>
-                    <a href="about2.php">About</a>
-                </div>
-                <div>
-                    <a href="contact2.php">Contact</a>
-                </div>
-                <div>
-                    <a href="logout.php">logout</a>
+                    <a href="login.php">Login</a>
                 </div>
             </div>
             <div class="social-pages">
