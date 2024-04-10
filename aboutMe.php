@@ -244,12 +244,12 @@ if (!isset($_SESSION['email'])) {
                 </div>
             </div>
             <div>
-                <a href="#" class="logo">UnQueue</a>
+                <a href="unqueue.php" class="logo">UnQueue</a>
             </div>
             <ul>
                 <li><a href="logout.php">Logout</a></li>
-                <li><a href="#">Booking</a></li>
-                <li><a href="#">History</a></li>
+                <li><a href="mybookings.php">Booking</a></li>
+                <li><a href="myhistory.php">History</a></li>
             </ul>
         </nav>
     </header>
@@ -322,10 +322,10 @@ if (!isset($_SESSION['email'])) {
                     <a href="myhistory.php">History</a>
                 </div>
                 <div>
-                    <a href="about2.php">About</a>
+                    <a href="aboutMe.php">About</a>
                 </div>
                 <div>
-                    <a href="contact2.php">Contact</a>
+                    <a href="contactMe.php">Contact</a>
                 </div>
                 <div>
                     <a href="logout.php">logout</a>

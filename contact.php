@@ -25,6 +25,15 @@ if (isset($_SESSION['email'])) {
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
+            background-color: #f2f2f2;
+            background-image: url("Media/new-bg-2.jpg");
+            background-size: cover;
+            /* This will make sure the image covers the entire background without distortion */
+            background-repeat: no-repeat;
+            /* Prevent the background image from repeating */
+            background-position: center;
+            background-attachment: fixed;
+            /* background-position: fixed; */
         }
 
         header {
@@ -169,16 +178,38 @@ if (isset($_SESSION['email'])) {
             }
         }
 
-        main {
-            background-image: url("Media/new-bg-2.jpg");
-            background-size: cover;
-            /* This will make sure the image covers the entire background without distortion */
-            background-repeat: no-repeat;
-            /* Prevent the background image from repeating */
-            background-position: center;
-            background-attachment: fixed;
-            /* background-position: fixed; */
+
+        .container {
+            max-width: 600px;
+            min-height: 40vh;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .contact-details {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .contact-details p {
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .contact-details strong {
+            color: #333;
+        }
+
+        
+
 
 
         /* .......................Footer Part styles........................ */
@@ -280,7 +311,7 @@ if (isset($_SESSION['email'])) {
                 </div>
             </div>
             <div>
-                <a href="#" class="logo">UnQueue</a>
+                <a href="index.php" class="logo">UnQueue</a>
             </div>
             <ul>
                 <li><a href="login.php">Login</a></li>
@@ -316,20 +347,21 @@ if (isset($_SESSION['email'])) {
                 </div>
             </div>
         </section>
-        <section id="home">
-            <div><h1>Contact UnQueue</h1>
-            <p>Thank you for your interest in UnQueue! We're here to assist you with any inquiries, questions, or feedback you may have. Please feel free to reach out to us using the contact information provided below.</p></div>
-        </section>
-        <section><div>
-        Contact Information
-        Address: [Your Company Address]
 
-Phone: [Your Phone Number]
+        <div class="container">
+            <h1>Contact The Developer!</h1>
+            <div class="contact-details">
+                <div style="margin-left: 26px; margin-top: 20px">
+                    <p><strong>Name:</strong> Kishor Bharti</p>
+                    <p><strong>Email:</strong> kishorbharti010@gmail.com</p>
+                    <p><strong>Phone:</strong> +91 7481973574</p>
+                    <p><strong>Address:</strong> Patna, Bihar, India</p>
+                </div>
+                <div><img src="media/dp.jpg" width="160" height="200" style="margin-left: 60px; border-radius: 6%;" alt="dp"></div>
+            </div>
+        </div>
 
-Email: [Your Email Address]
 
-Business Hours: [Your Business Hours]
-        </div></section>
     </main>
     <footer>
         <div class="content">
@@ -378,7 +410,7 @@ Business Hours: [Your Business Hours]
             </div>
         </div>
         <div class="copyright">
-            <p>&copy;UnQueue: Rights Reserved</p>
+            <p>&copy;UnQueue: All Rights Reserved</p>
         </div>
     </footer>
 </body>

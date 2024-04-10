@@ -99,6 +99,10 @@ try {
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
             line-height: 1.6;
+            background-image: url("Media/waiting_in_queue.jpg");
+            background-size: cover;
+            /* This makes the background image cover the entire body */
+            background-repeat: no-repeat
         }
 
 

@@ -262,8 +262,9 @@ if (!isset($_SESSION['email'])) {
 
             /* margin: 20px; */
             margin-left: 78px;
-            margin-top: 20px;
-            width: 400px;
+            margin-right: 36px;
+            width: 500px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
         }
 
         .about .image,
@@ -499,7 +500,7 @@ if (!isset($_SESSION['email'])) {
                 </div>
             </div>
             <div>
-                <a href="#" class="logo">UnQueue</a>
+                <a href="unqueue.php" class="logo">UnQueue</a>
             </div>
             <ul>
                 <li><a href="logout.php">Logout</a></li>
@@ -572,7 +573,7 @@ if (!isset($_SESSION['email'])) {
                 </div>
             </div>
             <div class="image">
-                <img src="cool.jpg" alt="About Image">
+                <img src="media/image.jpg" alt="About Image">
             </div>
         </section>
 
@@ -608,16 +609,16 @@ if (!isset($_SESSION['email'])) {
             </div>
             <div class="service-cards">
                 <div class="card">
-                    <img src="Media/ourservices1.png" alt="Express Way Access">
+                    <img src="Media/Ourservices1.jpg" alt="Express Way Access">
                     <h3>Express Way Access</h3>
                     <p>For clients with urgent needs or emergencies, we offer premium access options where they can bypass the queue by paying a premium price.</p>
                 </div>
                 <div class="card">
-                    <img src="Media/ourservices2.jpg" alt=" Virtual Queuing System">
+                    <img src="Media/Ourservices2.jpg" alt=" Virtual Queuing System">
                     <h3>Virtual Queuing System</h3><p>Our virtual queuing system allows users to join queues remotely through our website, receive real-time updates on queue status, and get notified when it's their turn.</p>
                 </div>
                 <div class="card">
-                    <img src="Media/ourservices3.jpg" alt="Digital Check-In">
+                    <img src="Media/Ourservices3.jpg" alt="Digital Check-In">
                     <h3>Digital Check-In</h3>
                     <p>With our digital check-in options, users can check in remotely before arriving on-site, securing their place in line and minimizing wait times upon arrival.</p>
                 </div>
@@ -692,7 +693,7 @@ if (!isset($_SESSION['email'])) {
             </div>
         </div>
         <div class="copyright">
-            <p>&copy;UnQueue: Rights Reserved</p>
+            <p>&copy;UnQueue: All Rights Reserved</p>
         </div>
     </footer>
 </body>

@@ -19,7 +19,7 @@ if (isset($_SESSION['email'])) {
     <title>Login</title>
     <!-- <link rel="stylesheet" href="styles.css"> -->
     <style>
-        /* Reset some default styles */
+        
         * {
             box-sizing: border-box;
             margin: 0;
@@ -30,6 +30,9 @@ if (isset($_SESSION['email'])) {
             font-family: Arial, sans-serif;
             /* background-color: #f2f2f2; */
             line-height: 1.6;
+            background-image: url("Media/waiting_in_queue.jpg");
+            background-size: cover;
+            background-repeat: no-repeat
         }
 
 
@@ -217,25 +220,26 @@ if (isset($_SESSION['email'])) {
             </ul>
         </nav>
     </header>
-    <div class="container">
-        <h1>Login</h1>
+    <main>
+        <div class="container">
+            <h1>Login</h1>
 
-        <form id="loginForm" action="authenticate.php" method="POST">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+            <form id="loginForm" action="authenticate.php" method="POST">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
 
-            <label for="password">Password</label>
-            <div class="password-field">
-                <input type="password" id="password" name="password" required>
-                <button type="button" id="viewPasswordBtn">View</button>
-            </div>
+                <label for="password">Password</label>
+                <div class="password-field">
+                    <input type="password" id="password" name="password" required>
+                    <button type="button" id="viewPasswordBtn">View</button>
+                </div>
 
-            <!-- <button type="submit" id="loginBtn">Login</button> -->
-            <button type="submit" id="loginBtn">Login</button>
-        </form>
-        <p>New user? <a href="signup.php">Sign Up</a></p>
-    </div>
-
+                
+                <button type="submit" id="loginBtn">Login</button>
+            </form>
+            <p>New user? <a href="signup.php">Sign Up</a></p>
+        </div>
+    </main>
     <script>
         // Get the password input and view password button
         const passwordInput = document.getElementById('password');

@@ -244,7 +244,7 @@ if (isset($_SESSION['email'])) {
                 </div>
             </div>
             <div>
-                <a href="notindex.php" class="logo">UnQueue</a>
+                <a href="index.php" class="logo">UnQueue</a>
             </div>
             <ul>
                 <li><a href="login.php">Login</a></li>
@@ -316,19 +316,13 @@ if (isset($_SESSION['email'])) {
             <div class="pages">
                 <p>Go to Pages</p>
                 <div>
-                    <a href="mybookings.php">Booking</a>
+                    <a href="login.php">Login</a>
                 </div>
                 <div>
-                    <a href="myhistory.php">History</a>
+                    <a href="signup.php">Signup</a>
                 </div>
                 <div>
-                    <a href="about2.php">About</a>
-                </div>
-                <div>
-                    <a href="contact2.php">Contact</a>
-                </div>
-                <div>
-                    <a href="logout.php">logout</a>
+                    <a href="contact.php">Contact</a>
                 </div>
             </div>
             <div class="social-pages">
@@ -356,7 +350,7 @@ if (isset($_SESSION['email'])) {
             </div>
         </div>
         <div class="copyright">
-            <p>&copy;UnQueue: Rights Reserved</p>
+            <p>&copy;UnQueue: All Rights Reserved</p>
         </div>
     </footer>
 </body>

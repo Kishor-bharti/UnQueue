@@ -236,7 +236,7 @@ if (!isset($_SESSION['email'])) {
 
         .pages div a,
         .social-pages div a {
-            display: inline-block ;
+            display: inline-block;
             /* display: flex;
             flex-direction: column; */
             text-decoration: none;
@@ -277,12 +277,12 @@ if (!isset($_SESSION['email'])) {
                 </div>
             </div>
             <div>
-                <a href="#" class="logo">UnQueue</a>
+                <a href="unqueue.php" class="logo">UnQueue</a>
             </div>
             <ul>
+                <li><a href="unqueue.php">Home</a></li>
                 <li><a href="logout.php">Logout</a></li>
-                <li><a href="#booking">Booking</a></li>
-                <li><a href="#history">History</a></li>
+                <li><a href="myhistory.php">History</a></li>
             </ul>
         </nav>
     </header>
@@ -299,44 +299,56 @@ if (!isset($_SESSION['email'])) {
                 <div class="booking-item">
                     <img src="cool.jpg" alt="CARE-WELL">
                     <h3>CARE-WELL</h3>
-                    <p>Waiting List: 4</p>
-                    <p>Token Number: 55</p>
-                    <button class="book-btn">Book Virtual Queue Token</button>
+                    <p id="objectValues1"></p>
+                    <!-- <p>Waiting List: 4</p> -->
+                    <!-- <p>Token Number: 55</p> -->
+                    <!-- <button class="book-btn">Book Virtual Queue Token</button> -->
+                    <button class="book-btn" id="toggleButton1">Book Virtual Queue Token</button>
                 </div>
                 <div class="booking-item">
                     <img src="cool.jpg" alt="CARE-WELL">
                     <h3>CARE-WELL</h3>
-                    <p>Waiting List: 4</p>
-                    <p>Token Number: 55</p>
-                    <button class="book-btn">Book Virtual Queue Token</button>
+                    <p id="objectValues2"></p>
+                    <!-- <p>Waiting List: 4</p>
+                    <p>Token Number: 55</p> -->
+                    <!-- <button class="book-btn">Book Virtual Queue Token</button> -->
+                    <button class="book-btn" id="toggleButton2">Book Virtual Queue Token</button>
                 </div>
                 <div class="booking-item">
                     <img src="cool.jpg" alt="CARE-WELL">
                     <h3>CARE-WELL</h3>
-                    <p>Waiting List: 4</p>
-                    <p>Token Number: 55</p>
-                    <button class="book-btn">Book Virtual Queue Token</button>
+                    <p id="objectValues3"></p>
+                    <!-- <p>Waiting List: 4</p>
+                    <p>Token Number: 55</p> -->
+                    <!-- <button class="book-btn">Book Virtual Queue Token</button> -->
+                    <button class="book-btn" id="toggleButton3">Book Virtual Queue Token</button>
                 </div>
                 <div class="booking-item">
                     <img src="cool.jpg" alt="CARE-WELL">
                     <h3>CARE-WELL</h3>
-                    <p>Waiting List: 5</p>
-                    <p>Token Number: 55</p>
-                    <button class="book-btn">Book Virtual Queue Token</button>
+                    <p id="objectValues4"></p>
+                    <!-- <p>Waiting List: 5</p>
+                    <p>Token Number: 55</p> -->
+                    <!-- <button class="book-btn">Book Virtual Queue Token</button> -->
+                    <button class="book-btn" id="toggleButton4">Book Virtual Queue Token</button>
                 </div>
                 <div class="booking-item">
                     <img src="cool.jpg" alt="CARE-WELL">
                     <h3>CARE-WELL</h3>
-                    <p>Waiting List: 4</p>
-                    <p>Token Number: 55</p>
-                    <button class="book-btn">Book Virtual Queue Token</button>
+                    <p id="objectValues5"></p>
+                    <!-- <p>Waiting List: 4</p>
+                    <p>Token Number: 55</p> -->
+                    <!-- <button class="book-btn">Book Virtual Queue Token</button> -->
+                    <button class="book-btn" id="toggleButton5">Book Virtual Queue Token</button>
                 </div>
                 <div class="booking-item">
                     <img src="cool.jpg" alt="CARE-WELL">
                     <h3>CARE-WELL</h3>
-                    <p>Waiting List: 4</p>
-                    <p>Token Number: 55</p>
-                    <button class="book-btn">Book Virtual Queue Token</button>
+                    <p id="objectValues6"></p>
+                    <!-- <p>Waiting List: 4</p>
+                    <p>Token Number: 55</p> -->
+                    <!-- <button class="book-btn">Book Virtual Queue Token</button> -->
+                    <button class="book-btn" id="toggleButton6">Book Virtual Queue Token</button>
                 </div>
                 <!-- Add more booking items here -->
             </div>
@@ -356,9 +368,124 @@ if (!isset($_SESSION['email'])) {
             <p id="tokenMessage"></p>
         </div>
     </div>
-    <a href="logout.php">Logout</a>
 
     <script>
+        // New One............................................
+
+        class RandomAttributes {
+            constructor() {
+                this.randomToken = Math.floor(Math.random() * 100); // Generates a random number between 0 and 99
+                this.randomWaiting = Math.floor(Math.random() * 20); // Generates a random number between 0 and 19
+                this.yourToken = this.randomToken + this.randomWaiting + 1; // Calculates YourToken
+                this.yourTurn = this.randomWaiting * 5; // Calculates YourTurn
+                this.buttonState = false; // Initial state of the button
+            }
+        }
+
+        // Create a new object of the RandomAttributes class
+        const Object1 = new RandomAttributes();
+        const Object2 = new RandomAttributes();
+        const Object3 = new RandomAttributes();
+        const Object4 = new RandomAttributes();
+        const Object5 = new RandomAttributes();
+        const Object6 = new RandomAttributes();
+
+        // Accessing attributes of the object
+        const object1Paragraph = document.getElementById("objectValues1");
+        object1Paragraph.innerHTML = `
+        <span>Token Number:</span> ${Object1.randomToken} <br>
+        <span>Waiting list:</span> ${Object1.randomWaiting} <br>
+         `;
+        // <span>Your Token:</span> ${myObject.yourToken} <br>
+        //   <span>Your Turn:</span> ${myObject.yourTurn}
+
+        const object2Paragraph = document.getElementById("objectValues2");
+        object2Paragraph.innerHTML = `
+        <span>Token Number:</span> ${Object2.randomToken} <br>
+        <span>Waiting list:</span> ${Object2.randomWaiting} <br>
+            `;
+        const object3Paragraph = document.getElementById("objectValues3");
+        object3Paragraph.innerHTML = `
+        <span>Token Number:</span> ${Object3.randomToken} <br>
+        <span>Waiting list:</span> ${Object3.randomWaiting} <br>
+            `;
+        const object4Paragraph = document.getElementById("objectValues4");
+        object4Paragraph.innerHTML = `
+        <span>Token Number:</span> ${Object4.randomToken} <br>
+        <span>Waiting list:</span> ${Object4.randomWaiting} <br>
+            `;
+        const object5Paragraph = document.getElementById("objectValues5");
+        object5Paragraph.innerHTML = `
+        <span>Token Number:</span> ${Object5.randomToken} <br>
+        <span>Waiting list:</span> ${Object5.randomWaiting} <br>
+            `;
+        const object6Paragraph = document.getElementById("objectValues6");
+        object6Paragraph.innerHTML = `
+        <span>Token Number:</span> ${Object6.randomToken} <br>
+        <span>Waiting list:</span> ${Object6.randomWaiting} <br>
+            `;
+
+        // const objectValuesParagraph = document.getElementById("objectValues");
+
+
+        const displayObjectDetails = (object, elementId) => {
+            const objectValuesParagraph = document.getElementById(elementId);
+            objectValuesParagraph.innerHTML = `
+        <span>Your Token:</span> ${object.yourToken} <br>
+        <span>Your Turn:</span> ${object.yourTurn}
+            `;
+        };
+
+        // const toggleButton1 = document.getElementById("toggleButton1");
+        // toggleButton1.addEventListener("click", () => {
+        //     displayObjectDetails(Object1, "objectValues1");
+        // });
+
+        // const toggleButton2 = document.getElementById("toggleButton2");
+        // toggleButton2.addEventListener("click", () => {
+        //     displayObjectDetails(Object2, "objectValues2");
+        // });
+
+        // const toggleButton3 = document.getElementById("toggleButton3");
+        // toggleButton3.addEventListener("click", () => {
+        //     displayObjectDetails(Object3, "objectValues3");
+        // });
+
+        // const toggleButton4 = document.getElementById("toggleButton4");
+        // toggleButton4.addEventListener("click", () => {
+        //     displayObjectDetails(Object4, "objectValues4");
+        // });
+
+        // const toggleButton5 = document.getElementById("toggleButton5");
+        // toggleButton5.addEventListener("click", () => {
+        //     displayObjectDetails(Object5, "objectValues5");
+        // });
+
+        // const toggleButton6 = document.getElementById("toggleButton6");
+        // toggleButton6.addEventListener("click", () => {
+        //     displayObjectDetails(Object6, "objectValues6");
+        // });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // Old One..........................................
         // Get booking buttons and history list
         const bookingButtons = document.querySelectorAll('.book-btn');
         const historyList = document.querySelector('.history-list');
@@ -368,53 +495,215 @@ if (!isset($_SESSION['email'])) {
         const closeButton = document.querySelector('.close-button');
         const tokenMessage = document.getElementById('tokenMessage');
 
-        // Track the last token number
-        let lastTokenNumber = 55;
+        // // Track the last token number
+        // let lastTokenNumber = 55;
 
-        // Function to display the token popup
-        function showTokenPopup(tokenNumber) {
-            const waitingTime = 4 * 5; // Waiting list * 5 minutes
-            tokenMessage.textContent = `Your token number is ${tokenNumber}. Your turn in ${waitingTime} mins.`;
+        // // Function to display the token popup
+        function showTokenPopup(object) {
+            // const waitingTime = object.randomWaiting * 5; // Waiting list * 5 minutes
+            tokenMessage.textContent = `Your token number is ${object.yourToken}. Your turn in ${object.yourTurn} mins.`;
             tokenPopup.style.display = 'block';
         }
 
-        // Function to hide the token popup
+        // // Function to hide the token popup
         function hideTokenPopup() {
             tokenPopup.style.display = 'none';
         }
 
-        // Event listener for booking buttons
-        bookingButtons.forEach((button) => {
-            button.addEventListener('click', () => {
-                lastTokenNumber++;
-                showTokenPopup(lastTokenNumber);
 
-                // Create a new booking entry
-                const bookingEntry = document.createElement('div');
-                bookingEntry.className = 'booking-entry';
-                bookingEntry.innerHTML = `
-            <span>Token Number: ${lastTokenNumber}</span>
+        const toggleButton1 = document.getElementById("toggleButton1");
+        toggleButton1.addEventListener("click", () => {
+            showTokenPopup(Object1);
+            // Create a new booking entry
+            const bookingEntry = document.createElement('div');
+            bookingEntry.className = 'booking-entry';
+            bookingEntry.innerHTML = `
+            <span>Token Number: ${Object1.yourToken}</span>
             <button class="cancel-btn">Cancel</button>
         `;
+            // Append the booking entry to the history list
+            historyList.appendChild(bookingEntry);
+            // // Add event listener for cancel button
+            const cancelButton = bookingEntry.querySelector('.cancel-btn');
+            cancelButton.addEventListener('click', () => {
+                cancelButton.textContent = 'Processing';
+                cancelButton.disabled = true;
 
-                // Append the booking entry to the history list
-                historyList.appendChild(bookingEntry);
-
-                // Add event listener for cancel button
-                const cancelButton = bookingEntry.querySelector('.cancel-btn');
-                cancelButton.addEventListener('click', () => {
-                    cancelButton.textContent = 'Processing';
-                    cancelButton.disabled = true;
-
-                    // After 1 minute, mark the booking as successful
-                    setTimeout(() => {
-                        cancelButton.textContent = 'Successful';
-                        cancelButton.style.backgroundColor = 'green';
-                    }, 60000); // 1 minute in milliseconds
-                });
+                // // After 1 minute, mark the booking as successful
+                setTimeout(() => {
+                    cancelButton.textContent = 'Cancelled';
+                    cancelButton.style.backgroundColor = 'red';
+                }, 5000); // 1 minute in milliseconds
             });
         });
 
+        const toggleButton2 = document.getElementById("toggleButton2");
+        toggleButton2.addEventListener("click", () => {
+            showTokenPopup(Object2);
+            // Create a new booking entry
+            const bookingEntry = document.createElement('div');
+            bookingEntry.className = 'booking-entry';
+            bookingEntry.innerHTML = `
+            <span>Token Number: ${Object2.yourToken}</span>
+            <button class="cancel-btn">Cancel</button>
+        `;
+            // Append the booking entry to the history list
+            historyList.appendChild(bookingEntry);
+            // // Add event listener for cancel button
+            const cancelButton = bookingEntry.querySelector('.cancel-btn');
+            cancelButton.addEventListener('click', () => {
+                cancelButton.textContent = 'Processing';
+                cancelButton.disabled = true;
+
+                // // After 1 minute, mark the booking as successful
+                setTimeout(() => {
+                    cancelButton.textContent = 'Cancelled';
+                    cancelButton.style.backgroundColor = 'red';
+                }, 5000); // 1 minute in milliseconds
+            });
+        });
+        const toggleButton3 = document.getElementById("toggleButton3");
+        toggleButton3.addEventListener("click", () => {
+            showTokenPopup(Object3);
+            // Create a new booking entry
+            const bookingEntry = document.createElement('div');
+            bookingEntry.className = 'booking-entry';
+            bookingEntry.innerHTML = `
+            <span>Token Number: ${Object3.yourToken}</span>
+            <button class="cancel-btn">Cancel</button>
+        `;
+            // Append the booking entry to the history list
+            historyList.appendChild(bookingEntry);
+            // // Add event listener for cancel button
+            const cancelButton = bookingEntry.querySelector('.cancel-btn');
+            cancelButton.addEventListener('click', () => {
+                cancelButton.textContent = 'Processing';
+                cancelButton.disabled = true;
+
+                // // After 1 minute, mark the booking as successful
+                setTimeout(() => {
+                    cancelButton.textContent = 'Cancelled';
+                    cancelButton.style.backgroundColor = 'red';
+                }, 5000); // 1 minute in milliseconds
+            });
+        });
+        const toggleButton4 = document.getElementById("toggleButton4");
+        toggleButton4.addEventListener("click", () => {
+            showTokenPopup(Object4);
+            // Create a new booking entry
+            const bookingEntry = document.createElement('div');
+            bookingEntry.className = 'booking-entry';
+            bookingEntry.innerHTML = `
+            <span>Token Number: ${Object4.yourToken}</span>
+            <button class="cancel-btn">Cancel</button>
+        `;
+            // Append the booking entry to the history list
+            historyList.appendChild(bookingEntry);
+            // // Add event listener for cancel button
+            const cancelButton = bookingEntry.querySelector('.cancel-btn');
+            cancelButton.addEventListener('click', () => {
+                cancelButton.textContent = 'Processing';
+                cancelButton.disabled = true;
+
+                // // After 1 minute, mark the booking as successful
+                setTimeout(() => {
+                    cancelButton.textContent = 'Cancelled';
+                    cancelButton.style.backgroundColor = 'red';
+                }, 5000); // 1 minute in milliseconds
+            });
+        });
+        const toggleButton5 = document.getElementById("toggleButton5");
+        toggleButton5.addEventListener("click", () => {
+            showTokenPopup(Object5);
+            // Create a new booking entry
+            const bookingEntry = document.createElement('div');
+            bookingEntry.className = 'booking-entry';
+            bookingEntry.innerHTML = `
+            <span>Token Number: ${Object5.yourToken}</span>
+            <button class="cancel-btn">Cancel</button>
+        `;
+            // Append the booking entry to the history list
+            historyList.appendChild(bookingEntry);
+            // // Add event listener for cancel button
+            const cancelButton = bookingEntry.querySelector('.cancel-btn');
+            cancelButton.addEventListener('click', () => {
+                cancelButton.textContent = 'Processing';
+                cancelButton.disabled = true;
+
+                // // After 1 minute, mark the booking as successful
+                setTimeout(() => {
+                    cancelButton.textContent = 'Cancelled';
+                    cancelButton.style.backgroundColor = 'red';
+                }, 5000); // 1 minute in milliseconds
+            });
+        });
+        const toggleButton6 = document.getElementById("toggleButton6");
+        toggleButton6.addEventListener("click", () => {
+            showTokenPopup(Object6);
+            // Create a new booking entry
+            const bookingEntry = document.createElement('div');
+            bookingEntry.className = 'booking-entry';
+            bookingEntry.innerHTML = `
+            <span>Token Number: ${Object6.yourToken}</span>
+            <button class="cancel-btn">Cancel</button>
+        `;
+            // Append the booking entry to the history list
+            historyList.appendChild(bookingEntry);
+            // // Add event listener for cancel button
+            const cancelButton = bookingEntry.querySelector('.cancel-btn');
+            cancelButton.addEventListener('click', () => {
+                cancelButton.textContent = 'Processing';
+                cancelButton.disabled = true;
+
+                // // After 1 minute, mark the booking as successful
+                setTimeout(() => {
+                    cancelButton.textContent = 'Cancelled';
+                    cancelButton.style.backgroundColor = 'red';
+                }, 5000); // 1 minute in milliseconds
+            });
+        });
+
+        // Repeat for obj3, obj4, and obj5...
+
+
+
+
+
+
+
+        // Event listener for booking buttons
+        // bookingButtons.forEach((button) => {
+        //     button.addEventListener('click', () => {
+        //         // lastTokenNumber++;
+        //         // showTokenPopup(lastTokenNumber);
+
+        //         // Create a new booking entry
+        // //         const bookingEntry = document.createElement('div');
+        // //         bookingEntry.className = 'booking-entry';
+        // //         bookingEntry.innerHTML = `
+        // //     <span>Token Number: ${lastTokenNumber}</span>
+        // //     <button class="cancel-btn">Cancel</button>
+        // // `;
+
+        // // Append the booking entry to the history list
+        // historyList.appendChild(bookingEntry);
+
+        // // Add event listener for cancel button
+        // const cancelButton = bookingEntry.querySelector('.cancel-btn');
+        // cancelButton.addEventListener('click', () => {
+        // cancelButton.textContent = 'Processing';
+        // cancelButton.disabled = true;
+
+        // // // After 1 minute, mark the booking as successful
+        // setTimeout(() => {
+        // cancelButton.textContent = 'Successful';
+        // cancelButton.style.backgroundColor = 'green';
+        // }, 60000); // 1 minute in milliseconds
+        // });
+        // });
+        // });
+
+        // 
         // Event listener for close button
         closeButton.addEventListener('click', hideTokenPopup);
 
@@ -434,7 +723,7 @@ if (!isset($_SESSION['email'])) {
             <div class="pages">
                 <p>Go to Pages</p>
                 <div>
-                    <a href="mybookings.php">Booking</a>
+                    <a href="unqueue.php">Home</a>
                 </div>
                 <div>
                     <a href="myhistory.php">History</a>
@@ -474,7 +763,7 @@ if (!isset($_SESSION['email'])) {
             </div>
         </div>
         <div class="copyright">
-            <p>&copy;UnQueue: Rights Reserved</p>
+            <p>&copy;UnQueue: All Rights Reserved</p>
         </div>
     </footer>
 </body>
