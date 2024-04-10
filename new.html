@@ -1,22 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <title>Booking Example</title>
 </head>
-
 <body>
-    <script>
-        const randomToken = Math.floor(Math.random() * 100) + 1;
-        console.log(randomToken);
-        const randomWaiting = Math.floor(Math.random() * 20) + 1;
-        console.log(randomWaiting);
+  <button id="bookingBtn">Booking</button>
+  <script>
+    const bookingBtn = document.getElementById('bookingBtn');
+    let cancelBtn;
+    let timer;
 
-        console.log("Your Token Number: "+(randomToken+randomWaiting+1));
-        console.log("Your Turn in: "+randomWaiting*5+"minutes!");
-    </script>
+    bookingBtn.addEventListener('click', initiateBooking);
+
+    function initiateBooking() {
+      bookingBtn.disabled = true;
+      cancelBtn = document.createElement('button');
+      cancelBtn.textContent = 'Cancel';
+      cancelBtn.style.backgroundColor = 'gray';
+      cancelBtn.addEventListener('click', cancelBooking);
+      document.body.appendChild(cancelBtn);
+
+      timer = setTimeout(markSuccessful, 5000);
+    }
+
+    function markSuccessful() {
+      cancelBtn.removeEventListener('click', cancelBooking);
+      cancelBtn.textContent = 'Successful';
+      cancelBtn.style.backgroundColor = 'green';
+    }
+
+    function cancelBooking() {
+      clearTimeout(timer);
+      cancelBtn.textContent = 'Cancelled';
+      cancelBtn.style.backgroundColor = 'red';
+      setTimeout(() => {
+        cancelBtn.remove();
+        bookingBtn.disabled = false;
+      }, 5000);
+    }
+  </script>
 </body>
-
 </html>

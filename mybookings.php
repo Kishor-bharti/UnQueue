@@ -298,7 +298,7 @@ if (!isset($_SESSION['email'])) {
             <div class="booking-grid">
                 <div class="booking-item">
                     <img src="cool.jpg" alt="CARE-WELL">
-                    <h3>CARE-WELL</h3>
+                    <h3>Care well</h3>
                     <p id="objectValues1"></p>
                     <!-- <p>Waiting List: 4</p> -->
                     <!-- <p>Token Number: 55</p> -->
@@ -307,7 +307,7 @@ if (!isset($_SESSION['email'])) {
                 </div>
                 <div class="booking-item">
                     <img src="cool.jpg" alt="CARE-WELL">
-                    <h3>CARE-WELL</h3>
+                    <h3>Apolo Dental</h3>
                     <p id="objectValues2"></p>
                     <!-- <p>Waiting List: 4</p>
                     <p>Token Number: 55</p> -->
@@ -316,7 +316,7 @@ if (!isset($_SESSION['email'])) {
                 </div>
                 <div class="booking-item">
                     <img src="cool.jpg" alt="CARE-WELL">
-                    <h3>CARE-WELL</h3>
+                    <h3>MN Diagnostic</h3>
                     <p id="objectValues3"></p>
                     <!-- <p>Waiting List: 4</p>
                     <p>Token Number: 55</p> -->
@@ -325,7 +325,7 @@ if (!isset($_SESSION['email'])) {
                 </div>
                 <div class="booking-item">
                     <img src="cool.jpg" alt="CARE-WELL">
-                    <h3>CARE-WELL</h3>
+                    <h3>Thyrocare</h3>
                     <p id="objectValues4"></p>
                     <!-- <p>Waiting List: 5</p>
                     <p>Token Number: 55</p> -->
@@ -334,7 +334,7 @@ if (!isset($_SESSION['email'])) {
                 </div>
                 <div class="booking-item">
                     <img src="cool.jpg" alt="CARE-WELL">
-                    <h3>CARE-WELL</h3>
+                    <h3>Quality Lab test</h3>
                     <p id="objectValues5"></p>
                     <!-- <p>Waiting List: 4</p>
                     <p>Token Number: 55</p> -->
@@ -343,7 +343,7 @@ if (!isset($_SESSION['email'])) {
                 </div>
                 <div class="booking-item">
                     <img src="cool.jpg" alt="CARE-WELL">
-                    <h3>CARE-WELL</h3>
+                    <h3>Origin Dianostic LAB</h3>
                     <p id="objectValues6"></p>
                     <!-- <p>Waiting List: 4</p>
                     <p>Token Number: 55</p> -->
@@ -373,22 +373,22 @@ if (!isset($_SESSION['email'])) {
         // New One............................................
 
         class RandomAttributes {
-            constructor() {
+            constructor(name) {
+                this.name = name;
                 this.randomToken = Math.floor(Math.random() * 100); // Generates a random number between 0 and 99
                 this.randomWaiting = Math.floor(Math.random() * 20); // Generates a random number between 0 and 19
                 this.yourToken = this.randomToken + this.randomWaiting + 1; // Calculates YourToken
                 this.yourTurn = this.randomWaiting * 5; // Calculates YourTurn
-                this.buttonState = false; // Initial state of the button
             }
         }
 
         // Create a new object of the RandomAttributes class
-        const Object1 = new RandomAttributes();
-        const Object2 = new RandomAttributes();
-        const Object3 = new RandomAttributes();
-        const Object4 = new RandomAttributes();
-        const Object5 = new RandomAttributes();
-        const Object6 = new RandomAttributes();
+        const Object1 = new RandomAttributes("Care well");
+        const Object2 = new RandomAttributes("Apolo Dental");
+        const Object3 = new RandomAttributes("MN Diagnostic");
+        const Object4 = new RandomAttributes("Thyrocare");
+        const Object5 = new RandomAttributes("Quality Lab test");
+        const Object6 = new RandomAttributes("Origin Dianostic LAB");
 
         // Accessing attributes of the object
         const object1Paragraph = document.getElementById("objectValues1");
@@ -436,56 +436,7 @@ if (!isset($_SESSION['email'])) {
             `;
         };
 
-        // const toggleButton1 = document.getElementById("toggleButton1");
-        // toggleButton1.addEventListener("click", () => {
-        //     displayObjectDetails(Object1, "objectValues1");
-        // });
 
-        // const toggleButton2 = document.getElementById("toggleButton2");
-        // toggleButton2.addEventListener("click", () => {
-        //     displayObjectDetails(Object2, "objectValues2");
-        // });
-
-        // const toggleButton3 = document.getElementById("toggleButton3");
-        // toggleButton3.addEventListener("click", () => {
-        //     displayObjectDetails(Object3, "objectValues3");
-        // });
-
-        // const toggleButton4 = document.getElementById("toggleButton4");
-        // toggleButton4.addEventListener("click", () => {
-        //     displayObjectDetails(Object4, "objectValues4");
-        // });
-
-        // const toggleButton5 = document.getElementById("toggleButton5");
-        // toggleButton5.addEventListener("click", () => {
-        //     displayObjectDetails(Object5, "objectValues5");
-        // });
-
-        // const toggleButton6 = document.getElementById("toggleButton6");
-        // toggleButton6.addEventListener("click", () => {
-        //     displayObjectDetails(Object6, "objectValues6");
-        // });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // Old One..........................................
         // Get booking buttons and history list
         const bookingButtons = document.querySelectorAll('.book-btn');
         const historyList = document.querySelector('.history-list');
@@ -510,200 +461,259 @@ if (!isset($_SESSION['email'])) {
             tokenPopup.style.display = 'none';
         }
 
-
         const toggleButton1 = document.getElementById("toggleButton1");
+
         toggleButton1.addEventListener("click", () => {
             showTokenPopup(Object1);
+            toggleButton1.disabled = true;
             // Create a new booking entry
             const bookingEntry = document.createElement('div');
             bookingEntry.className = 'booking-entry';
             bookingEntry.innerHTML = `
-            <span>Token Number: ${Object1.yourToken}</span>
-            <button class="cancel-btn">Cancel</button>
-        `;
+    <span>Venue: ${Object1.name}</span>
+    <span>Your Token Number: ${Object1.yourToken}</span>
+    <span>Reach the Venue in: ${Object1.yourTurn}mins</span>
+    <button class="cancel-btn" style="background-color: gray;">Cancel</button>
+  `;
+
             // Append the booking entry to the history list
             historyList.appendChild(bookingEntry);
-            // // Add event listener for cancel button
+
+            // Add event listener for cancel button
             const cancelButton = bookingEntry.querySelector('.cancel-btn');
-            cancelButton.addEventListener('click', () => {
+            cancelButton.addEventListener('click', handleCancelBooking);
+
+            // Set a timeout to mark the booking as successful after 5 seconds
+            const successTimer = setTimeout(() => {
+                cancelButton.textContent = 'Successful';
+                cancelButton.style.backgroundColor = 'green';
+                cancelButton.removeEventListener('click', handleCancelBooking);
+            }, 5000);
+
+            function handleCancelBooking() {
+                clearTimeout(successTimer);
                 cancelButton.textContent = 'Processing';
                 cancelButton.disabled = true;
+                cancelButton.style.backgroundColor = 'gray';
 
-                // // After 1 minute, mark the booking as successful
+                // After 5 seconds, mark the booking as Cancelled
                 setTimeout(() => {
                     cancelButton.textContent = 'Cancelled';
                     cancelButton.style.backgroundColor = 'red';
-                }, 5000); // 1 minute in milliseconds
-            });
+                }, 5000);
+            }
         });
 
         const toggleButton2 = document.getElementById("toggleButton2");
+
         toggleButton2.addEventListener("click", () => {
             showTokenPopup(Object2);
+            toggleButton2.disabled = true;
             // Create a new booking entry
             const bookingEntry = document.createElement('div');
             bookingEntry.className = 'booking-entry';
             bookingEntry.innerHTML = `
-            <span>Token Number: ${Object2.yourToken}</span>
-            <button class="cancel-btn">Cancel</button>
-        `;
+    <span>Venue: ${Object2.name}</span>
+    <span>Your Token Number: ${Object2.yourToken}</span>
+    <span>Reach the Venue in: ${Object2.yourTurn}mins</span>
+    <button class="cancel-btn" style="background-color: gray;">Cancel</button>
+  `;
+
             // Append the booking entry to the history list
             historyList.appendChild(bookingEntry);
-            // // Add event listener for cancel button
+
+            // Add event listener for cancel button
             const cancelButton = bookingEntry.querySelector('.cancel-btn');
-            cancelButton.addEventListener('click', () => {
+            cancelButton.addEventListener('click', handleCancelBooking);
+
+            // Set a timeout to mark the booking as successful after 5 seconds
+            const successTimer = setTimeout(() => {
+                cancelButton.textContent = 'Successful';
+                cancelButton.style.backgroundColor = 'green';
+                cancelButton.removeEventListener('click', handleCancelBooking);
+            }, 5000);
+
+            function handleCancelBooking() {
+                clearTimeout(successTimer);
                 cancelButton.textContent = 'Processing';
                 cancelButton.disabled = true;
+                cancelButton.style.backgroundColor = 'gray';
 
-                // // After 1 minute, mark the booking as successful
+                // After 5 seconds, mark the booking as Cancelled
                 setTimeout(() => {
                     cancelButton.textContent = 'Cancelled';
                     cancelButton.style.backgroundColor = 'red';
-                }, 5000); // 1 minute in milliseconds
-            });
+                }, 5000);
+            }
         });
         const toggleButton3 = document.getElementById("toggleButton3");
+
         toggleButton3.addEventListener("click", () => {
             showTokenPopup(Object3);
+            toggleButton3.disabled = true;
             // Create a new booking entry
             const bookingEntry = document.createElement('div');
             bookingEntry.className = 'booking-entry';
             bookingEntry.innerHTML = `
-            <span>Token Number: ${Object3.yourToken}</span>
-            <button class="cancel-btn">Cancel</button>
-        `;
+    <span>Venue: ${Object3.name}</span>
+    <span>Your Token Number: ${Object3.yourToken}</span>
+    <span>Reach the Venue in: ${Object3.yourTurn}mins</span>
+    <button class="cancel-btn" style="background-color: gray;">Cancel</button>
+  `;
+
             // Append the booking entry to the history list
             historyList.appendChild(bookingEntry);
-            // // Add event listener for cancel button
+
+            // Add event listener for cancel button
             const cancelButton = bookingEntry.querySelector('.cancel-btn');
-            cancelButton.addEventListener('click', () => {
+            cancelButton.addEventListener('click', handleCancelBooking);
+
+            // Set a timeout to mark the booking as successful after 5 seconds
+            const successTimer = setTimeout(() => {
+                cancelButton.textContent = 'Successful';
+                cancelButton.style.backgroundColor = 'green';
+                cancelButton.removeEventListener('click', handleCancelBooking);
+            }, 5000);
+
+            function handleCancelBooking() {
+                clearTimeout(successTimer);
                 cancelButton.textContent = 'Processing';
                 cancelButton.disabled = true;
+                cancelButton.style.backgroundColor = 'gray';
 
-                // // After 1 minute, mark the booking as successful
+                // After 5 seconds, mark the booking as Cancelled
                 setTimeout(() => {
                     cancelButton.textContent = 'Cancelled';
                     cancelButton.style.backgroundColor = 'red';
-                }, 5000); // 1 minute in milliseconds
-            });
+                }, 5000);
+            }
         });
-        const toggleButton4 = document.getElementById("toggleButton4");
+        const toggleButton4 = document.getElementById("toggleButton4");3
         toggleButton4.addEventListener("click", () => {
             showTokenPopup(Object4);
+            toggleButton4.disabled = true;
             // Create a new booking entry
             const bookingEntry = document.createElement('div');
             bookingEntry.className = 'booking-entry';
             bookingEntry.innerHTML = `
-            <span>Token Number: ${Object4.yourToken}</span>
-            <button class="cancel-btn">Cancel</button>
-        `;
+    <span>Venue: ${Object4.name}</span>
+    <span>Your Token Number: ${Object4.yourToken}</span>
+    <span>Reach the Venue in: ${Object4.yourTurn}mins</span>
+    <button class="cancel-btn" style="background-color: gray;">Cancel</button>
+  `;
+
             // Append the booking entry to the history list
             historyList.appendChild(bookingEntry);
-            // // Add event listener for cancel button
+
+            // Add event listener for cancel button
             const cancelButton = bookingEntry.querySelector('.cancel-btn');
-            cancelButton.addEventListener('click', () => {
+            cancelButton.addEventListener('click', handleCancelBooking);
+
+            // Set a timeout to mark the booking as successful after 5 seconds
+            const successTimer = setTimeout(() => {
+                cancelButton.textContent = 'Successful';
+                cancelButton.style.backgroundColor = 'green';
+                cancelButton.removeEventListener('click', handleCancelBooking);
+            }, 5000);
+
+            function handleCancelBooking() {
+                clearTimeout(successTimer);
                 cancelButton.textContent = 'Processing';
                 cancelButton.disabled = true;
+                cancelButton.style.backgroundColor = 'gray';
 
-                // // After 1 minute, mark the booking as successful
+                // After 5 seconds, mark the booking as Cancelled
                 setTimeout(() => {
                     cancelButton.textContent = 'Cancelled';
                     cancelButton.style.backgroundColor = 'red';
-                }, 5000); // 1 minute in milliseconds
-            });
+                }, 5000);
+            }
         });
         const toggleButton5 = document.getElementById("toggleButton5");
+
         toggleButton5.addEventListener("click", () => {
             showTokenPopup(Object5);
-            // Create a new booking entry
+            toggleButton5.disabled = true;
+            // Create a new booking entr4
             const bookingEntry = document.createElement('div');
             bookingEntry.className = 'booking-entry';
             bookingEntry.innerHTML = `
-            <span>Token Number: ${Object5.yourToken}</span>
-            <button class="cancel-btn">Cancel</button>
-        `;
+        <span>Venue: ${Object5.name}</span>
+    <span>Your Token Number: ${Object5.yourToken}</span>
+    <span>Reach the Venue in: ${Object5.yourTurn}mins</span>
+<button class="cancel-btn" style="background-color: gray;">Cancel</button>
+`;
+
             // Append the booking entry to the history list
             historyList.appendChild(bookingEntry);
-            // // Add event listener for cancel button
+
+            // Add event listener for cancel button
             const cancelButton = bookingEntry.querySelector('.cancel-btn');
-            cancelButton.addEventListener('click', () => {
+            cancelButton.addEventListener('click', handleCancelBooking);
+
+            // Set a timeout to mark the booking as successful after 5 seconds
+            const successTimer = setTimeout(() => {
+                cancelButton.textContent = 'Successful';
+                cancelButton.style.backgroundColor = 'green';
+                cancelButton.removeEventListener('click', handleCancelBooking);
+            }, 5000);
+
+            function handleCancelBooking() {
+                clearTimeout(successTimer);
                 cancelButton.textContent = 'Processing';
                 cancelButton.disabled = true;
+                cancelButton.style.backgroundColor = 'gray';
 
-                // // After 1 minute, mark the booking as successful
+                // After 5 seconds, mark the booking as Cancelled
                 setTimeout(() => {
                     cancelButton.textContent = 'Cancelled';
                     cancelButton.style.backgroundColor = 'red';
-                }, 5000); // 1 minute in milliseconds
-            });
+                }, 5000);
+            }
         });
         const toggleButton6 = document.getElementById("toggleButton6");
+
         toggleButton6.addEventListener("click", () => {
             showTokenPopup(Object6);
+            toggleButton6.disabled = true;
             // Create a new booking entry
             const bookingEntry = document.createElement('div');
             bookingEntry.className = 'booking-entry';
             bookingEntry.innerHTML = `
-            <span>Token Number: ${Object6.yourToken}</span>
-            <button class="cancel-btn">Cancel</button>
-        `;
+    <span>Venue: ${Object6.name}</span>
+    <span>Your Token Number: ${Object6.yourToken}</span>
+    <span>Reach the Venue in: ${Object6.yourTurn}mins</span>
+<button class="cancel-btn" style="background-color: gray;">Cancel</button>
+`;
+
             // Append the booking entry to the history list
             historyList.appendChild(bookingEntry);
-            // // Add event listener for cancel button
+
+            // Add event listener for cancel button
             const cancelButton = bookingEntry.querySelector('.cancel-btn');
-            cancelButton.addEventListener('click', () => {
+            cancelButton.addEventListener('click', handleCancelBooking);
+
+            // Set a timeout to mark the booking as successful after 5 seconds
+            const successTimer = setTimeout(() => {
+                cancelButton.textContent = 'Successful';
+                cancelButton.style.backgroundColor = 'green';
+                cancelButton.removeEventListener('click', handleCancelBooking);
+            }, 5000);
+
+            function handleCancelBooking() {
+                clearTimeout(successTimer);
                 cancelButton.textContent = 'Processing';
                 cancelButton.disabled = true;
+                cancelButton.style.backgroundColor = 'gray';
 
-                // // After 1 minute, mark the booking as successful
+                // After 5 seconds, mark the booking as Cancelled
                 setTimeout(() => {
                     cancelButton.textContent = 'Cancelled';
                     cancelButton.style.backgroundColor = 'red';
-                }, 5000); // 1 minute in milliseconds
-            });
+                }, 5000);
+            }
         });
 
-        // Repeat for obj3, obj4, and obj5...
-
-
-
-
-
-
-
-        // Event listener for booking buttons
-        // bookingButtons.forEach((button) => {
-        //     button.addEventListener('click', () => {
-        //         // lastTokenNumber++;
-        //         // showTokenPopup(lastTokenNumber);
-
-        //         // Create a new booking entry
-        // //         const bookingEntry = document.createElement('div');
-        // //         bookingEntry.className = 'booking-entry';
-        // //         bookingEntry.innerHTML = `
-        // //     <span>Token Number: ${lastTokenNumber}</span>
-        // //     <button class="cancel-btn">Cancel</button>
-        // // `;
-
-        // // Append the booking entry to the history list
-        // historyList.appendChild(bookingEntry);
-
-        // // Add event listener for cancel button
-        // const cancelButton = bookingEntry.querySelector('.cancel-btn');
-        // cancelButton.addEventListener('click', () => {
-        // cancelButton.textContent = 'Processing';
-        // cancelButton.disabled = true;
-
-        // // // After 1 minute, mark the booking as successful
-        // setTimeout(() => {
-        // cancelButton.textContent = 'Successful';
-        // cancelButton.style.backgroundColor = 'green';
-        // }, 60000); // 1 minute in milliseconds
-        // });
-        // });
-        // });
-
-        // 
         // Event listener for close button
         closeButton.addEventListener('click', hideTokenPopup);
 
