@@ -14,7 +14,7 @@ if (!isset($_SESSION['email'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UnQueue</title>
+    <title>UnQueue: My Bookings</title>
     <style>
         /* Reset styles and basic styling */
         * {
@@ -462,10 +462,10 @@ if (!isset($_SESSION['email'])) {
         }
 
         const toggleButton1 = document.getElementById("toggleButton1");
-
         toggleButton1.addEventListener("click", () => {
             showTokenPopup(Object1);
             toggleButton1.disabled = true;
+
             // Create a new booking entry
             const bookingEntry = document.createElement('div');
             bookingEntry.className = 'booking-entry';
@@ -488,6 +488,7 @@ if (!isset($_SESSION['email'])) {
                 cancelButton.textContent = 'Successful';
                 cancelButton.style.backgroundColor = 'green';
                 cancelButton.removeEventListener('click', handleCancelBooking);
+                insertData(Object1.name, Object1.yourToken, cancelButton.textContent);
             }, 5000);
 
             function handleCancelBooking() {
@@ -500,15 +501,34 @@ if (!isset($_SESSION['email'])) {
                 setTimeout(() => {
                     cancelButton.textContent = 'Cancelled';
                     cancelButton.style.backgroundColor = 'red';
+                    insertData(Object1.name, Object1.yourToken, cancelButton.textContent);
                 }, 5000);
+            }
+
+            function insertData(organisation_name, Token_no, status) {
+                const data = {
+                    organisation_name: organisation_name,
+                    Token_no: Token_no,
+                    status: status
+                };
+
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', 'insert_data.php', true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        console.log(xhr.responseText);
+                    }
+                };
+                xhr.send(JSON.stringify(data));
             }
         });
 
         const toggleButton2 = document.getElementById("toggleButton2");
-
         toggleButton2.addEventListener("click", () => {
             showTokenPopup(Object2);
             toggleButton2.disabled = true;
+
             // Create a new booking entry
             const bookingEntry = document.createElement('div');
             bookingEntry.className = 'booking-entry';
@@ -531,6 +551,7 @@ if (!isset($_SESSION['email'])) {
                 cancelButton.textContent = 'Successful';
                 cancelButton.style.backgroundColor = 'green';
                 cancelButton.removeEventListener('click', handleCancelBooking);
+                insertData(Object2.name, Object2.yourToken, cancelButton.textContent);
             }, 5000);
 
             function handleCancelBooking() {
@@ -543,14 +564,35 @@ if (!isset($_SESSION['email'])) {
                 setTimeout(() => {
                     cancelButton.textContent = 'Cancelled';
                     cancelButton.style.backgroundColor = 'red';
+                    insertData(Object2.name, Object2.yourToken, cancelButton.textContent);
                 }, 5000);
             }
-        });
-        const toggleButton3 = document.getElementById("toggleButton3");
+            function insertData(organisation_name, Token_no, status) {
+            const data = {
+                organisation_name: organisation_name,
+                Token_no: Token_no,
+                status: status
+            };
 
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'insert_data.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log(xhr.responseText);
+                }
+            };
+            xhr.send(JSON.stringify(data));
+        }
+        });
+
+        
+
+        const toggleButton3 = document.getElementById("toggleButton3");
         toggleButton3.addEventListener("click", () => {
             showTokenPopup(Object3);
             toggleButton3.disabled = true;
+
             // Create a new booking entry
             const bookingEntry = document.createElement('div');
             bookingEntry.className = 'booking-entry';
@@ -573,6 +615,7 @@ if (!isset($_SESSION['email'])) {
                 cancelButton.textContent = 'Successful';
                 cancelButton.style.backgroundColor = 'green';
                 cancelButton.removeEventListener('click', handleCancelBooking);
+                insertData(Object3.name, Object3.yourToken, cancelButton.textContent);
             }, 5000);
 
             function handleCancelBooking() {
@@ -585,13 +628,35 @@ if (!isset($_SESSION['email'])) {
                 setTimeout(() => {
                     cancelButton.textContent = 'Cancelled';
                     cancelButton.style.backgroundColor = 'red';
+                    insertData(Object3.name, Object3.yourToken, cancelButton.textContent);
                 }, 5000);
             }
+
+            function insertData(organisation_name, Token_no, status) {
+            const data = {
+                organisation_name: organisation_name,
+                Token_no: Token_no,
+                status: status
+            };
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'insert_data.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log(xhr.responseText);
+                }
+            };
+            xhr.send(JSON.stringify(data));
+        }
         });
-        const toggleButton4 = document.getElementById("toggleButton4");3
+
+        
+        const toggleButton4 = document.getElementById("toggleButton4");
         toggleButton4.addEventListener("click", () => {
             showTokenPopup(Object4);
             toggleButton4.disabled = true;
+
             // Create a new booking entry
             const bookingEntry = document.createElement('div');
             bookingEntry.className = 'booking-entry';
@@ -614,6 +679,7 @@ if (!isset($_SESSION['email'])) {
                 cancelButton.textContent = 'Successful';
                 cancelButton.style.backgroundColor = 'green';
                 cancelButton.removeEventListener('click', handleCancelBooking);
+                insertData(Object4.name, Object4.yourToken, cancelButton.textContent);
             }, 5000);
 
             function handleCancelBooking() {
@@ -626,15 +692,36 @@ if (!isset($_SESSION['email'])) {
                 setTimeout(() => {
                     cancelButton.textContent = 'Cancelled';
                     cancelButton.style.backgroundColor = 'red';
+                    insertData(Object4.name, Object4.yourToken, cancelButton.textContent);
                 }, 5000);
             }
-        });
-        const toggleButton5 = document.getElementById("toggleButton5");
+        
 
+        function insertData(organisation_name, Token_no, status) {
+            const data = {
+                organisation_name: organisation_name,
+                Token_no: Token_no,
+                status: status
+            };
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'insert_data.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log(xhr.responseText);
+                }
+            };
+            xhr.send(JSON.stringify(data));
+        }
+
+    });
+        const toggleButton5 = document.getElementById("toggleButton5");
         toggleButton5.addEventListener("click", () => {
             showTokenPopup(Object5);
             toggleButton5.disabled = true;
-            // Create a new booking entr4
+            
+            // Create a new booking entry
             const bookingEntry = document.createElement('div');
             bookingEntry.className = 'booking-entry';
             bookingEntry.innerHTML = `
@@ -656,6 +743,7 @@ if (!isset($_SESSION['email'])) {
                 cancelButton.textContent = 'Successful';
                 cancelButton.style.backgroundColor = 'green';
                 cancelButton.removeEventListener('click', handleCancelBooking);
+                insertData(Object5.name, Object5.yourToken, cancelButton.textContent);
             }, 5000);
 
             function handleCancelBooking() {
@@ -668,8 +756,26 @@ if (!isset($_SESSION['email'])) {
                 setTimeout(() => {
                     cancelButton.textContent = 'Cancelled';
                     cancelButton.style.backgroundColor = 'red';
+                    insertData(Object5.name, Object5.yourToken, cancelButton.textContent);
                 }, 5000);
             }
+            function insertData(organisation_name, Token_no, status) {
+            const data = {
+                organisation_name: organisation_name,
+                Token_no: Token_no,
+                status: status
+            };
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'insert_data.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log(xhr.responseText);
+                }
+            };
+            xhr.send(JSON.stringify(data));
+        }
         });
         const toggleButton6 = document.getElementById("toggleButton6");
 
@@ -698,6 +804,7 @@ if (!isset($_SESSION['email'])) {
                 cancelButton.textContent = 'Successful';
                 cancelButton.style.backgroundColor = 'green';
                 cancelButton.removeEventListener('click', handleCancelBooking);
+                insertData(Object6.name, Object6.yourToken, cancelButton.textContent);
             }, 5000);
 
             function handleCancelBooking() {
@@ -710,8 +817,26 @@ if (!isset($_SESSION['email'])) {
                 setTimeout(() => {
                     cancelButton.textContent = 'Cancelled';
                     cancelButton.style.backgroundColor = 'red';
+                    insertData(Object6.name, Object6.yourToken, cancelButton.textContent);
                 }, 5000);
             }
+            function insertData(organisation_name, Token_no, status) {
+            const data = {
+                organisation_name: organisation_name,
+                Token_no: Token_no,
+                status: status
+            };
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'insert_data.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log(xhr.responseText);
+                }
+            };
+            xhr.send(JSON.stringify(data));
+        }
         });
 
         // Event listener for close button

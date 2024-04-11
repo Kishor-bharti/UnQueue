@@ -53,11 +53,12 @@ try {
         // Create a new table for the user
         $tableName = "user_" . $userID;
         $createTableQuery = "CREATE TABLE $tableName (
-        userID INT NOT NULL,
-        organisation_name VARCHAR(100) NOT NULL,
-        status ENUM('successful', 'failed') NOT NULL,
-        current_date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    )";
+            userID INT AUTO_INCREMENT PRIMARY KEY, -- Add AUTO_INCREMENT to make it auto-incrementing
+            organisation_name VARCHAR(100) NOT NULL,
+            Token_no INT NOT NULL,
+            status ENUM('successful', 'cancelled') NOT NULL,
+            current_date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )";
 
         if ($conn->query($createTableQuery) === TRUE) {
             // echo "User registered successfully, and a new table has been created for the user!";
@@ -86,7 +87,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <title>Sign Up To UnQueue</title>
     <!-- <link rel="stylesheet" href="styles.css"> -->
     <style>
         * {
