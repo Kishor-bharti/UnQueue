@@ -114,7 +114,7 @@ if (!isset($_SESSION['email'])) {
         }
 
         .booking-item img {
-            max-width: 30%;
+            max-width: 80%;
             height: auto;
         }
 
@@ -297,7 +297,7 @@ if (!isset($_SESSION['email'])) {
             <h2>Book Your Virtual Queue Token</h2>
             <div class="booking-grid">
                 <div class="booking-item">
-                    <img src="cool.jpg" alt="CARE-WELL">
+                    <img src="media/hospital.jpg" alt="CARE-WELL">
                     <h3>Care well</h3>
                     <p id="objectValues1"></p>
                     <!-- <p>Waiting List: 4</p> -->
@@ -306,7 +306,7 @@ if (!isset($_SESSION['email'])) {
                     <button class="book-btn" id="toggleButton1">Book Virtual Queue Token</button>
                 </div>
                 <div class="booking-item">
-                    <img src="cool.jpg" alt="CARE-WELL">
+                    <img src="media/hospital.jpg" alt="CARE-WELL">
                     <h3>Apolo Dental</h3>
                     <p id="objectValues2"></p>
                     <!-- <p>Waiting List: 4</p>
@@ -315,7 +315,7 @@ if (!isset($_SESSION['email'])) {
                     <button class="book-btn" id="toggleButton2">Book Virtual Queue Token</button>
                 </div>
                 <div class="booking-item">
-                    <img src="cool.jpg" alt="CARE-WELL">
+                    <img src="media/hospital.jpg" alt="CARE-WELL">
                     <h3>MN Diagnostic</h3>
                     <p id="objectValues3"></p>
                     <!-- <p>Waiting List: 4</p>
@@ -324,7 +324,7 @@ if (!isset($_SESSION['email'])) {
                     <button class="book-btn" id="toggleButton3">Book Virtual Queue Token</button>
                 </div>
                 <div class="booking-item">
-                    <img src="cool.jpg" alt="CARE-WELL">
+                    <img src="media/hospital.jpg" alt="CARE-WELL">
                     <h3>Thyrocare</h3>
                     <p id="objectValues4"></p>
                     <!-- <p>Waiting List: 5</p>
@@ -333,7 +333,7 @@ if (!isset($_SESSION['email'])) {
                     <button class="book-btn" id="toggleButton4">Book Virtual Queue Token</button>
                 </div>
                 <div class="booking-item">
-                    <img src="cool.jpg" alt="CARE-WELL">
+                    <img src="media/hospital.jpg" alt="CARE-WELL">
                     <h3>Quality Lab test</h3>
                     <p id="objectValues5"></p>
                     <!-- <p>Waiting List: 4</p>
@@ -342,7 +342,7 @@ if (!isset($_SESSION['email'])) {
                     <button class="book-btn" id="toggleButton5">Book Virtual Queue Token</button>
                 </div>
                 <div class="booking-item">
-                    <img src="cool.jpg" alt="CARE-WELL">
+                    <img src="media/hospital.jpg" alt="CARE-WELL">
                     <h3>Origin Dianostic LAB</h3>
                     <p id="objectValues6"></p>
                     <!-- <p>Waiting List: 4</p>

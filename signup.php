@@ -277,10 +277,10 @@ try {
                 </div>
             </div>
             <div>
-                <a href="#" class="logo">UnQueue</a>
+                <a href="index.php" class="logo">UnQueue</a>
             </div>
             <ul>
-                <li><a href="notindex.php">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="about.php">About</a></li>
                 <li><a href="contact.php">Contact</a></li>
             </ul>
