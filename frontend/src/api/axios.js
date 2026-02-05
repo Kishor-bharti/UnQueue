@@ -2,7 +2,7 @@ import axios from "axios";
 import { tokenStorage } from "../utils/tokenStorage";
 
 export const api = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL: import.meta.env.VITE_API_BASE_URL,
 });
 
 let isRefreshing = false;
@@ -48,9 +48,11 @@ api.interceptors.response.use(
         const refreshToken = tokenStorage.getRefresh();
         if (!refreshToken) throw new Error("No refresh token");
 
-        const resp = await axios.post("http://localhost:8080/api/auth/refresh", {
-          refreshToken,
-        });
+        const resp = await axios.post(
+          `${import.meta.env.VITE_API_BASE_URL}/api/auth/refresh`,
+          { refreshToken }
+        );
+
 
         const { accessToken, refreshToken: newRefresh } = resp.data;
         tokenStorage.setTokens({ accessToken, refreshToken: newRefresh });
