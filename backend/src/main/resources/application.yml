@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/unqueue
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+app:
+  jwt:
+    issuer: unqueue
+    access-token-minutes: 15
+    refresh-token-days: 14
+    secret: "unqueue_super_secret_key_2026_make_this_long_123456789"
