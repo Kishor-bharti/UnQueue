@@ -1,6 +1,7 @@
 package in.kbworks.unqueue.controller;
 
 import in.kbworks.unqueue.dto.BookingCreateRequest;
+import in.kbworks.unqueue.dto.BookingResponse;
 import in.kbworks.unqueue.entity.Booking;
 import in.kbworks.unqueue.entity.User;
 import in.kbworks.unqueue.service.BookingService;
@@ -38,9 +39,20 @@ public class BookingController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Booking>> list(Authentication auth) {
+    public ResponseEntity<List<BookingResponse>> list(Authentication auth) {
         User user = (User) auth.getPrincipal();
-        return ResponseEntity.ok(bookingService.list(user));
+
+        List<BookingResponse> data = bookingService.list(user).stream()
+                .map(b -> BookingResponse.builder()
+                        .id(b.getId())
+                        .organisationName(b.getOrganisationName())
+                        .tokenNo(b.getTokenNo())
+                        .status(b.getStatus())
+                        .createdAt(b.getCreatedAt())
+                        .build())
+                .toList();
+
+        return ResponseEntity.ok(data);
     }
 
     @PatchMapping("/{id}/cancel")
